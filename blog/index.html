@@ -7,16 +7,8 @@ content_class: section-index-page
 ---
 <section class="section-index blog-index">
   <header class="section-index-header blog-index-header">
-    <p class="section-kicker">?</p>
     <h1>Blog</h1>
-    <p>
-        removing this for now**
-    </p>
   </header>
-
-  <div class="blog-index-guide">
-    <span>Posts are ordered chronologically.</span>
-  </div>
 
   {% if site.posts.size > 0 %}
     {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}

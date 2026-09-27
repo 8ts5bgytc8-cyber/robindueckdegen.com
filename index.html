@@ -1,0 +1,57 @@
+---
+layout: home
+title: Home
+description: Robin Dueck Degen — mathematics student at the University of Saskatchewan.
+---
+<section class="home-block" id="about">
+  <h2>About</h2>
+  <p class="home-intro">I am an honours mathematics student at the University of Saskatchewan.</p>
+</section>
+
+<section class="home-block" id="latest-post">
+  <h2>Latest Blog Post</h2>
+
+  {% assign latest_post = site.posts.first %}
+
+  {% if latest_post %}
+    <article class="home-entry">
+      <p class="home-meta">
+        {{ latest_post.date | date: "%d %B %Y" }}
+        {% if latest_post.project %}
+          · {{ latest_post.project }}
+        {% endif %}
+      </p>
+
+      <h3>
+        <a href="{{ latest_post.url | relative_url }}">
+          {{ latest_post.title }}
+        </a>
+      </h3>
+
+      {% if latest_post.description %}
+        <p>{{ latest_post.description }}</p>
+      {% endif %}
+
+      <p class="home-link">
+        <a href="{{ latest_post.url | relative_url }}">Read post →</a>
+      </p>
+    </article>
+  {% else %}
+    <p>No blog posts published yet.</p>
+  {% endif %}
+</section>
+
+<section class="home-block" id="projects">
+  <h2>Projects</h2>
+  <article class="home-entry">
+    <p class="home-meta">Sep 2026–Present · Honours Thesis</p>
+    <h3><a href="{{ '/projects/twisting-theory-of-lie-algebras/' | relative_url }}">Twisting Theory of Lie Algebras</a></h3>
+    <p>
+      This project builds on work from my first summer research under the supervision of Dr. Curtis Wendlandt.
+    </p>
+    <p>
+      My first goal is to cover twisting theory of Lie algebras and coalgebras, with some perspective from (co)homology. I then hope to cover the twisting theory of Lie bialgebras, and potentially further, with some coverage of interpretation and applications.
+    </p>
+    <p class="home-link"><a href="{{ '/projects/twisting-theory-of-lie-algebras/' | relative_url }}">View project →</a></p>
+  </article>
+</section>

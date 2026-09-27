@@ -1,0 +1,30 @@
+<aside class="home-sidebar cv-sidebar" aria-label="CV navigation">
+  <section>
+    <h2>CV Navigation</h2>
+    <ul class="sidebar-list">
+      <li><a href="#education">Education</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#coursework">Coursework</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Site</h2>
+    <ul class="sidebar-list">
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
+      <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Elsewhere</h2>
+    <ul class="sidebar-list">
+      <li><a href="https://www.linkedin.com/in/robin-dueck-degen-8a406a20a">LinkedIn</a></li>
+      {% if site.github_url and site.github_url != "" %}
+        <li><a href="{{ site.github_url }}">GitHub</a></li>
+      {% endif %}
+    </ul>
+  </section>
+</aside>

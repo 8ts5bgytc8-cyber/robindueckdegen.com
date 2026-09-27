@@ -4,20 +4,33 @@ title: Projects
 description: Selected substantial projects by Robin Dueck Degen.
 content_class: section-index-page
 ---
+
 <section class="section-index">
   <header class="section-index-header">
-    <p class="section-kicker">Selected work</p>
     <h1>Projects</h1>
   </header>
 
+  {% assign thesis = site.pages | where: "project_key", "twisting-theory" | first %}
+
   <div class="project-index-list">
-    <article class="project-index-entry">
-      <div class="project-index-meta">Honours Thesis · Sep 2026–Present</div>
-      <h2><a href="{{ '/projects/twisting-theory-of-lie-algebras/' | relative_url }}">Twisting Theory of Lie Algebras</a></h2>
-      <p>
-        An in-progress study on Lie algebras which aims to cover the basics of Lie (co)algebra and bialgebra twists with connections to cohomology and more.
-      </p>
-      <p class="index-action"><a href="{{ '/projects/twisting-theory-of-lie-algebras/' | relative_url }}">Open project →</a></p>
-    </article>
+    {% if thesis %}
+      <article class="project-index-entry">
+        <div class="project-index-meta">
+          {{ thesis.project_type }} · {{ thesis.dates }}
+        </div>
+
+        <h2>
+          <a href="{{ thesis.url | relative_url }}">
+            {{ thesis.title }}
+          </a>
+        </h2>
+
+        <p>{{ thesis.description }}</p>
+
+        <p class="index-action">
+          <a href="{{ thesis.url | relative_url }}">Open project →</a>
+        </p>
+      </article>
+    {% endif %}
   </div>
 </section>

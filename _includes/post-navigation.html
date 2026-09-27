@@ -1,0 +1,17 @@
+<nav class="site-nav post-site-nav" aria-label="Blog post navigation">
+  <span class="post-site-nav-slot post-site-nav-previous">
+    {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}">← Previous</a>
+    {% endif %}
+  </span>
+
+  <span class="post-site-nav-slot post-site-nav-index">
+    <a href="{{ '/blog/' | relative_url }}">Blog</a>
+  </span>
+
+  <span class="post-site-nav-slot post-site-nav-next">
+    {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}">Next →</a>
+    {% endif %}
+  </span>
+</nav>
