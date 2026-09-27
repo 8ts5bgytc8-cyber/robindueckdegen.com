@@ -1,0 +1,134 @@
+.project-page {
+  padding-top: 40px;
+  padding-bottom: 58px;
+}
+
+.project-detail {
+  max-width: 730px;
+  margin: 0 auto;
+}
+
+.project-header {
+  margin-bottom: 34px;
+  padding-bottom: 23px;
+  border-bottom: 3px solid var(--orange);
+}
+
+.project-kicker {
+  margin: 0 0 6px;
+  color: var(--orange-dark);
+  font-family: Verdana, Tahoma, Arial, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.project-header h1 {
+  margin: 0 0 12px;
+  color: var(--purple-dark);
+  font-size: 34px;
+  font-weight: normal;
+  line-height: 1.1;
+}
+
+.project-meta-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  color: var(--muted);
+  font-family: Verdana, Tahoma, Arial, sans-serif;
+  font-size: 10px;
+}
+
+.project-deck {
+  max-width: 660px;
+  margin: 17px 0 0;
+  color: #453f3b;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.project-body {
+  max-width: 690px;
+  font-size: 17px;
+  line-height: 1.66;
+}
+
+.project-body h2,
+.project-related-notes h2 {
+  margin: 34px 0 11px;
+  color: var(--purple-dark);
+  font-size: 23px;
+  font-weight: normal;
+}
+
+.project-body h3 {
+  margin: 27px 0 9px;
+  color: var(--purple-dark);
+  font-size: 19px;
+  font-weight: normal;
+}
+
+
+.project-figure {
+  margin: 30px auto 34px;
+}
+
+.project-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #cfc3ba;
+  background: #fff;
+}
+
+.project-figure-wide {
+  max-width: 680px;
+}
+
+.project-figure figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-family: Verdana, Tahoma, Arial, sans-serif;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.figure-title {
+  color: #4a403a;
+  font-weight: bold;
+}
+
+.project-related-notes {
+  margin-top: 42px;
+  padding-top: 12px;
+  border-top: 1px dotted var(--rule);
+}
+
+.project-related-notes ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-related-notes li {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 15px;
+  padding: 9px 0;
+  border-bottom: 1px solid #d1c6bd;
+}
+
+.project-related-notes li span {
+  color: var(--muted);
+  font-family: Verdana, Tahoma, Arial, sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 620px) {
+  .project-header h1 { font-size: 29px; }
+  .project-related-notes li { display: block; }
+  .project-related-notes li span { display: block; margin-bottom: 3px; }
+}

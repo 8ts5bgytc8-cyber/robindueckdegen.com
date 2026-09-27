@@ -1,0 +1,53 @@
+---
+layout: default
+title: Blog
+blog_styles: true
+description: Project notes, mathematical experiments, and progress on larger work.
+content_class: section-index-page
+---
+<section class="section-index blog-index">
+  <header class="section-index-header blog-index-header">
+    <p class="section-kicker">Project notebook</p>
+    <h1>Blog</h1>
+    <p>
+      Shorter mathematical investigations, implementation work, mini-projects, and progress on larger projects. Entries are intended to preserve concrete work without promoting every experiment to a full project.
+    </p>
+  </header>
+
+  <div class="blog-index-guide">
+    <span>Browse chronologically below.</span>
+    <span>Project-linked posts point back to their larger project pages.</span>
+  </div>
+
+  {% if site.posts.size > 0 %}
+    {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% for year in posts_by_year %}
+      <h2 class="archive-year">{{ year.name }}</h2>
+
+      {% assign posts_by_month = year.items | group_by_exp: "post", "post.date | date: '%B'" %}
+      {% for month in posts_by_month %}
+        <h3 class="archive-month">{{ month.name }}</h3>
+        <ol class="post-list">
+          {% for post in month.items %}
+            <li class="post-list-item">
+              <div class="post-list-date">{{ post.date | date: "%d %B" }}</div>
+              <div>
+                <h4 class="post-list-title">
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h4>
+                {% if post.project %}
+                  <p class="post-list-project">{{ post.project }}</p>
+                {% endif %}
+                {% if post.description %}
+                  <p class="post-list-description">{{ post.description }}</p>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ol>
+      {% endfor %}
+    {% endfor %}
+  {% else %}
+    <p class="placeholder">No notes published yet.</p>
+  {% endif %}
+</section>

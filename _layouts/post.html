@@ -1,0 +1,48 @@
+---
+layout: default
+blog_styles: true
+content_class: blog-post-page
+---
+<article class="blog-post">
+  <header class="post-header">
+    <p class="post-date">{{ page.date | date: "%d %B %Y" }}</p>
+    <h1>{{ page.title }}</h1>
+
+    <div class="post-meta">
+      <span>Robin Dueck Degen</span>
+      {% if page.project %}
+        <span class="meta-divider">·</span>
+        {% if page.project_url %}
+          <span>Part of: <a href="{{ page.project_url | relative_url }}">{{ page.project }}</a></span>
+        {% else %}
+          <span>Part of: {{ page.project }}</span>
+        {% endif %}
+      {% endif %}
+    </div>
+
+    {% if page.description %}
+      <p class="post-deck">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    {% if page.project %}
+      <p>
+        <strong>Project:</strong>
+        {% if page.project_url %}
+          <a href="{{ page.project_url | relative_url }}">{{ page.project }}</a>
+        {% else %}
+          {{ page.project }}
+        {% endif %}
+      </p>
+    {% endif %}
+
+    <p class="post-navigation">
+      <a href="{{ '/blog/' | relative_url }}">← Blog index</a>
+    </p>
+  </footer>
+</article>

@@ -1,0 +1,41 @@
+<aside class="home-sidebar" aria-label="Homepage sidebar">
+  <section>
+    <h2>Navigation</h2>
+    <ul class="sidebar-list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#coursework">Coursework</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#notes">Notes</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Academic</h2>
+    <ul class="sidebar-list">
+      <li>University of Saskatchewan</li>
+      <li>Honours Mathematics</li>
+      <li>Honours Thesis</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Topics</h2>
+    <ul class="sidebar-list">
+      <li>Mathematics</li>
+      <li>Coursework</li>
+      <li>Project notes</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Elsewhere</h2>
+    <ul class="sidebar-list">
+      <li><a href="https://www.linkedin.com/in/robin-dueck-degen-8a406a20a">LinkedIn</a></li>
+      {% if site.github_url and site.github_url != "" %}
+      <li><a href="{{ site.github_url }}">GitHub</a></li>
+      {% endif %}
+    </ul>
+  </section>
+</aside>
