@@ -4,12 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ page.description | default: site.description | escape }}">
-  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  {% if page.noindex %}
+  <meta name="robots" content="noindex, nofollow">
+  {% endif %}
+  {% if page.layout == "post" or page.layout == "project" or page.layout == "research-project" %}
+    {% unless page.publish_date %}
+  <meta name="robots" content="noindex, nofollow">
+    {% endunless %}
+  {% elsif page.layout == "project-chapter" %}
+    {% assign projects_for_meta = site.pages | where: "layout", "project" %}
+    {% assign parent_project_for_meta = projects_for_meta | where: "project_key", page.project_key | first %}
+    {% unless page.publish_date and parent_project_for_meta.publish_date %}
+  <meta name="robots" content="noindex, nofollow">
+    {% endunless %}
+  {% elsif page.layout == "project-section" %}
+    {% assign projects_for_meta = site.pages | where: "layout", "project" %}
+    {% assign parent_project_for_meta = projects_for_meta | where: "project_key", page.project_key | first %}
+    {% assign chapters_for_meta = site.project_chapters | where: "project_key", page.project_key %}
+    {% assign parent_chapter_for_meta = chapters_for_meta | where: "chapter_key", page.chapter_key | first %}
+    {% unless page.publish_date and parent_chapter_for_meta.publish_date and parent_project_for_meta.publish_date %}
+  <meta name="robots" content="noindex, nofollow">
+    {% endunless %}
+  {% endif %}
+<title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {% if page.blog_styles or page.layout == "post" %}
   <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
   {% endif %}
-  {% if page.project_styles or page.layout == "project" %}
+  {% if page.project_styles or page.layout == "project" or page.layout == "research-project" or page.layout == "project-chapter" or page.layout == "project-section" %}
   <link rel="stylesheet" href="{{ '/assets/css/project.css' | relative_url }}">
   {% endif %}
   <script>
@@ -41,12 +63,16 @@
       </p>
       {% if page.layout == "post" %}
         {% include post-navigation.html %}
+      {% elsif page.layout == "project-chapter" %}
+        {% include project-chapter-navigation.html %}
+      {% elsif page.layout == "project-section" %}
+        {% include project-section-navigation.html %}
       {% else %}
         {% include navigation.html %}
       {% endif %}
     </header>
 
-    <main class="page-content{% if page.layout == 'home' %} home-page{% elsif page.layout == 'post' %} blog-post-page{% elsif page.layout == 'project' %} project-page{% elsif page.layout == 'cv' %} home-page cv-page{% elsif page.content_class %} {{ page.content_class }}{% endif %}">
+    <main class="page-content{% if page.layout == 'home' %} home-page{% elsif page.layout == 'post' %} blog-post-page{% elsif page.layout == 'project' or page.layout == 'research-project' or page.layout == 'project-chapter' or page.layout == 'project-section' %} project-page{% elsif page.layout == 'cv' %} home-page cv-page{% elsif page.content_class %} {{ page.content_class }}{% endif %}">
       {{ content }}
     </main>
 

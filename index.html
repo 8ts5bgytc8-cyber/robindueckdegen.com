@@ -1,57 +1,63 @@
 ---
 layout: home
 title: Home
-description: Robin Dueck Degen — mathematics student at the University of Saskatchewan.
+description: Robin Dueck Degen — honours mathematics student at the University of Saskatchewan.
 ---
+
 <section class="home-block" id="about">
   <h2>About</h2>
-  <p class="home-intro">I am an honours mathematics student at the University of Saskatchewan.</p>
+  <p class="home-intro">
+    I am an honours mathematics student at the University of Saskatchewan.
+  </p>
+  <p>
+    My current interests are centered on algebra, geometry, mechanics,
+    mathematical physics, and the analysis supporting those subjects.
+  </p>
 </section>
 
-<section class="home-block" id="latest-post">
-  <h2>Latest Blog Post</h2>
+<section class="home-block" id="research">
+  <h2>Current Research</h2>
 
-  {% assign latest_post = site.posts.first %}
+  {% assign research_pages = site.pages | where: "layout", "research-project" %}
+  {% assign public_research = research_pages | where_exp: "item", "item.publish_date" | sort: "publish_date" | reverse %}
 
-  {% if latest_post %}
+  {% for item in public_research %}
     <article class="home-entry">
       <p class="home-meta">
-        {{ latest_post.date | date: "%d %B %Y" }}
-        {% if latest_post.project %}
-          · {{ latest_post.project }}
-        {% endif %}
+        {% if item.project_type %}{{ item.project_type }}{% endif %}
+        {% if item.dates %} · {{ item.dates }}{% endif %}
       </p>
 
       <h3>
-        <a href="{{ latest_post.url | relative_url }}">
-          {{ latest_post.title }}
-        </a>
+        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
       </h3>
 
-      {% if latest_post.description %}
-        <p>{{ latest_post.description }}</p>
+      {% if item.description %}
+        <p>{{ item.description }}</p>
       {% endif %}
 
       <p class="home-link">
-        <a href="{{ latest_post.url | relative_url }}">Read post →</a>
+        <a href="{{ item.url | relative_url }}">Research page →</a>
       </p>
     </article>
   {% else %}
-    <p>No blog posts published yet.</p>
-  {% endif %}
+    <p>No research pages published yet.</p>
+  {% endfor %}
 </section>
 
-<section class="home-block" id="projects">
-  <h2>Projects</h2>
-  <article class="home-entry">
-    <p class="home-meta">Sep 2026–Present · Honours Thesis</p>
-    <h3><a href="{{ '/projects/twisting-theory-of-lie-algebras/' | relative_url }}">Twisting Theory of Lie Algebras</a></h3>
-    <p>
-      This project builds on work from my first summer research under the supervision of Dr. Curtis Wendlandt.
-    </p>
-    <p>
-      My first goal is to cover twisting theory of Lie algebras and coalgebras, with some perspective from (co)homology. I then hope to cover the twisting theory of Lie bialgebras, and potentially further, with some coverage of interpretation and applications.
-    </p>
-    <p class="home-link"><a href="{{ '/projects/twisting-theory-of-lie-algebras/' | relative_url }}">View project →</a></p>
-  </article>
+{% assign academic_posts = site.posts | where: "academic_featured", true | where_exp: "post", "post.publish_date" %}
+{% if academic_posts.size > 0 %}
+<section class="home-block" id="writing">
+  <h2>Selected Mathematical Writing</h2>
+
+  {% for post in academic_posts limit:3 %}
+    <article class="home-entry">
+      <p class="home-meta">{{ post.publish_date | date: "%d %B %Y" }}</p>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      {% if post.description %}
+        <p>{{ post.description }}</p>
+      {% endif %}
+    </article>
+  {% endfor %}
 </section>
+{% endif %}

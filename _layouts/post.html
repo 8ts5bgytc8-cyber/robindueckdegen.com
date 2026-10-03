@@ -5,7 +5,11 @@ content_class: blog-post-page
 ---
 <article class="blog-post">
   <header class="post-header">
-    <p class="post-date">{{ page.date | date: "%d %B %Y" }}</p>
+    {% if page.publish_date %}
+      <p class="post-date">{{ page.publish_date | date: "%d %B %Y" }}</p>
+    {% else %}
+      <p class="post-date">Unlisted note</p>
+    {% endif %}
     <h1>{{ page.title }}</h1>
 
     <div class="post-meta">

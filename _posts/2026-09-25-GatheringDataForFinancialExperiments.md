@@ -1,4 +1,5 @@
 ---
+publish_date: 2026-09-25
 layout: post
 title: "Gathering Data For Financial Experiments"
 date: 2026-09-25 12:00:00 -0600

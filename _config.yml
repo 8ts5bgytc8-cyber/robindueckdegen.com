@@ -9,9 +9,31 @@ kramdown:
 permalink: /blog/:year/:month/:day/:title/
 timezone: America/Regina
 
+collections:
+  project_chapters:
+    output: true
+    permalink: /projects/:path/
+  project_sections:
+    output: true
+    permalink: /projects/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: project_chapters
+    values:
+      layout: project-chapter
+      project_styles: true
+  - scope:
+      path: ""
+      type: project_sections
+    values:
+      layout: project-section
+      project_styles: true
+
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
 
-github_url: "https://github.com/Rdueckd"
+github_url: ""

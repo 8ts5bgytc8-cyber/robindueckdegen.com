@@ -20,14 +20,59 @@ content_class: project-page
   </div>
 
   {% if page.project_key %}
-    {% assign related_posts = site.posts | where: "project_key", page.project_key %}
+    {% assign all_project_chapters = site.project_chapters | where: "project_key", page.project_key | sort: "chapter_order" %}
+    {% assign all_project_sections = site.project_sections | where: "project_key", page.project_key | sort: "section_order" %}
+
+    {% if page.publish_date %}
+      {% assign visible_project_chapters = all_project_chapters | where_exp: "chapter", "chapter.publish_date" %}
+    {% else %}
+      {% assign visible_project_chapters = all_project_chapters %}
+    {% endif %}
+
+    {% if visible_project_chapters.size > 0 %}
+      <nav class="project-toc" aria-label="Project contents">
+        <h2>Contents</h2>
+        <ol class="project-toc-chapters">
+          {% for chapter in visible_project_chapters %}
+            <li class="project-toc-chapter">
+              <a class="project-toc-chapter-link" href="{{ chapter.url | relative_url }}">
+                {{ chapter.title }}
+              </a>
+
+              {% assign chapter_sections = all_project_sections | where: "chapter_key", chapter.chapter_key %}
+              {% if page.publish_date %}
+                {% assign chapter_sections = chapter_sections | where_exp: "section", "section.publish_date" %}
+              {% endif %}
+
+              {% if chapter_sections.size > 0 %}
+                <ol class="project-toc-sections">
+                  {% for section in chapter_sections %}
+                    <li>
+                      <a href="{{ section.url | relative_url }}">{{ section.title }}</a>
+                      {% if section.description %}
+                        <span>{{ section.description }}</span>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ol>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ol>
+      </nav>
+    {% endif %}
+  {% endif %}
+
+  {% if page.project_key %}
+    {% assign project_posts = site.posts | where: "project_key", page.project_key %}
+    {% assign related_posts = project_posts | where_exp: "post", "post.publish_date" %}
     <section class="project-related-notes">
       <h2>Related project notes</h2>
       {% if related_posts.size > 0 %}
         <ul>
           {% for post in related_posts %}
             <li>
-              <span>{{ post.date | date: "%d %B %Y" }}</span>
+              <span>{{ post.publish_date | date: "%d %B %Y" }}</span>
               <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </li>
           {% endfor %}

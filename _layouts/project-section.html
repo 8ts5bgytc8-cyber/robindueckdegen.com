@@ -1,0 +1,45 @@
+---
+layout: default
+project_styles: true
+content_class: project-page
+---
+{% assign project_pages = site.pages | where: "layout", "project" %}
+{% assign project_home = project_pages | where: "project_key", page.project_key | first %}
+{% assign project_chapters = site.project_chapters | where: "project_key", page.project_key %}
+{% assign chapter_home = project_chapters | where: "chapter_key", page.chapter_key | first %}
+
+<article class="project-detail project-section-detail">
+  <header class="project-header project-section-header">
+    {% if project_home and chapter_home %}
+      <p class="project-kicker">
+        <a href="{{ project_home.url | relative_url }}">{{ project_home.title }}</a>
+        ·
+        <a href="{{ chapter_home.url | relative_url }}">{{ chapter_home.title }}</a>
+      </p>
+    {% elsif project_home %}
+      <p class="project-kicker">
+        <a href="{{ project_home.url | relative_url }}">{{ project_home.title }}</a>
+      </p>
+    {% else %}
+      <p class="project-kicker">Project section</p>
+    {% endif %}
+
+    <h1>{{ page.title }}</h1>
+
+    {% if page.description %}
+      <p class="project-deck">{{ page.description }}</p>
+    {% endif %}
+
+    {% unless page.publish_date %}
+      <p class="project-section-status">Unlisted working section</p>
+    {% endunless %}
+  </header>
+
+  <div class="project-body project-section-body">
+    {{ content }}
+  </div>
+
+  <footer class="project-section-footer">
+    {% include project-section-navigation.html %}
+  </footer>
+</article>

@@ -1,17 +1,44 @@
-<nav class="site-nav post-site-nav" aria-label="Blog post navigation">
+{% assign same_project_posts = site.posts | where: "project_key", page.project_key | where_exp: "post", "post.publish_date" %}
+
+{% assign research_pages = site.pages | where: "layout", "research-project" %}
+{% assign research_home = research_pages | where: "project_key", page.project_key | first %}
+
+{% assign project_pages = site.pages | where: "layout", "project" %}
+{% assign project_home = project_pages | where: "project_key", page.project_key | first %}
+
+{% assign current_index = nil %}
+{% for post in same_project_posts %}
+  {% if post.url == page.url %}
+    {% assign current_index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+<nav class="site-nav post-site-nav" aria-label="Note navigation">
   <span class="post-site-nav-slot post-site-nav-previous">
-    {% if page.previous %}
-      <a href="{{ page.previous.url | relative_url }}">← Previous</a>
+    {% if current_index != nil %}
+      {% assign older_index = current_index | plus: 1 %}
+      {% if older_index < same_project_posts.size %}
+        {% assign older_post = same_project_posts[older_index] %}
+        <a href="{{ older_post.url | relative_url }}">← Previous</a>
+      {% endif %}
     {% endif %}
   </span>
 
   <span class="post-site-nav-slot post-site-nav-index">
-    <a href="{{ '/blog/' | relative_url }}">Blog</a>
+    {% if research_home %}
+      <a href="{{ research_home.url | relative_url }}">Research home</a>
+    {% elsif project_home %}
+      <a href="{{ project_home.url | relative_url }}">Project home</a>
+    {% else %}
+      <a href="{{ '/' | relative_url }}">Home</a>
+    {% endif %}
   </span>
 
   <span class="post-site-nav-slot post-site-nav-next">
-    {% if page.next %}
-      <a href="{{ page.next.url | relative_url }}">Next →</a>
+    {% if current_index != nil and current_index > 0 %}
+      {% assign newer_index = current_index | minus: 1 %}
+      {% assign newer_post = same_project_posts[newer_index] %}
+      <a href="{{ newer_post.url | relative_url }}">Next →</a>
     {% endif %}
   </span>
 </nav>

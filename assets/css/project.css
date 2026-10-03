@@ -132,3 +132,190 @@
   .project-related-notes li { display: block; }
   .project-related-notes li span { display: block; margin-bottom: 3px; }
 }
+
+
+/* Project contents */
+.project-toc {
+  max-width: 690px;
+  margin: 0 0 38px;
+  padding: 18px 20px 16px;
+  border: 1px solid #b9aea5;
+  border-left: 6px solid var(--purple);
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.project-toc h2 {
+  margin: 0 0 11px;
+  color: var(--purple-dark);
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.project-toc ol {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.project-toc li {
+  margin: 8px 0;
+}
+
+.project-toc li > a {
+  font-size: 17px;
+}
+
+.project-toc li > span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* Long-form project sections */
+.project-section-header .project-kicker a,
+.project-section-header .project-kicker a:visited {
+  color: var(--orange-dark);
+}
+
+.project-section-status {
+  display: inline-block;
+  margin: 14px 0 0;
+  padding: 3px 7px;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  font-family: Verdana, Tahoma, Arial, sans-serif;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.project-section-footer {
+  max-width: 690px;
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px dotted var(--rule);
+}
+
+.project-section-site-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.project-section-site-nav a,
+.project-section-site-nav a:visited {
+  margin-right: 0;
+}
+
+.project-section-nav-previous {
+  text-align: left;
+}
+
+.project-section-nav-home {
+  text-align: center;
+}
+
+.project-section-nav-next {
+  text-align: right;
+}
+
+@media (max-width: 620px) {
+  .project-toc {
+    padding: 15px 16px 14px;
+  }
+
+  .project-section-site-nav {
+    gap: 8px;
+    font-size: 10px;
+  }
+}
+
+
+/* Hierarchical project contents */
+.project-toc-chapters {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.project-toc-chapter {
+  margin: 12px 0 16px;
+}
+
+.project-toc-chapter-link {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.project-toc-sections {
+  margin: 7px 0 0;
+  padding-left: 24px;
+}
+
+.project-toc-sections li {
+  margin: 6px 0;
+}
+
+.chapter-toc {
+  max-width: 690px;
+  margin-top: 38px;
+  padding-top: 12px;
+  border-top: 1px dotted var(--rule);
+}
+
+.chapter-toc h2 {
+  margin: 0 0 11px;
+  color: var(--purple-dark);
+  font-size: 23px;
+  font-weight: normal;
+}
+
+.chapter-toc ol {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.chapter-toc li {
+  margin: 8px 0;
+}
+
+.chapter-toc li > span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+/* Research project landing pages */
+.research-project-page {
+  padding-top: 40px;
+  padding-bottom: 58px;
+}
+
+.research-links {
+  max-width: 690px;
+  margin-top: 38px;
+  padding-top: 12px;
+  border-top: 1px dotted var(--rule);
+}
+
+.research-links h2 {
+  margin: 0 0 10px;
+  color: var(--purple-dark);
+  font-size: 23px;
+  font-weight: normal;
+}
+
+.research-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: Verdana, Tahoma, Arial, sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+}

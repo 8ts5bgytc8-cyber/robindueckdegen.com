@@ -1,0 +1,60 @@
+---
+layout: default
+project_styles: true
+content_class: project-page
+---
+{% assign project_pages = site.pages | where: "layout", "project" %}
+{% assign project_home = project_pages | where: "project_key", page.project_key | first %}
+{% assign all_sections = site.project_sections | where: "project_key", page.project_key | where: "chapter_key", page.chapter_key | sort: "section_order" %}
+
+{% if page.publish_date and project_home.publish_date %}
+  {% assign visible_sections = all_sections | where_exp: "section", "section.publish_date" %}
+{% else %}
+  {% assign visible_sections = all_sections %}
+{% endif %}
+
+<article class="project-detail project-chapter-detail">
+  <header class="project-header project-chapter-header">
+    {% if project_home %}
+      <p class="project-kicker">
+        <a href="{{ project_home.url | relative_url }}">{{ project_home.title }}</a>
+      </p>
+    {% else %}
+      <p class="project-kicker">Project chapter</p>
+    {% endif %}
+
+    <h1>{{ page.title }}</h1>
+
+    {% if page.description %}
+      <p class="project-deck">{{ page.description }}</p>
+    {% endif %}
+
+    {% unless page.publish_date %}
+      <p class="project-section-status">Unlisted working chapter</p>
+    {% endunless %}
+  </header>
+
+  <div class="project-body project-chapter-body">
+    {{ content }}
+  </div>
+
+  {% if visible_sections.size > 0 %}
+    <nav class="chapter-toc" aria-label="Chapter sections">
+      <h2>Sections</h2>
+      <ol>
+        {% for section in visible_sections %}
+          <li>
+            <a href="{{ section.url | relative_url }}">{{ section.title }}</a>
+            {% if section.description %}
+              <span>{{ section.description }}</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ol>
+    </nav>
+  {% endif %}
+
+  <footer class="project-section-footer">
+    {% include project-chapter-navigation.html %}
+  </footer>
+</article>

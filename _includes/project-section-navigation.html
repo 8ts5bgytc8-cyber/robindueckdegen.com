@@ -1,0 +1,46 @@
+{% assign project_pages = site.pages | where: "layout", "project" %}
+{% assign project_home = project_pages | where: "project_key", page.project_key | first %}
+{% assign project_chapters = site.project_chapters | where: "project_key", page.project_key %}
+{% assign chapter_home = project_chapters | where: "chapter_key", page.chapter_key | first %}
+{% assign all_sections = site.project_sections | where: "project_key", page.project_key | where: "chapter_key", page.chapter_key | sort: "section_order" %}
+
+{% if page.publish_date and project_home.publish_date and chapter_home.publish_date %}
+  {% assign nav_sections = all_sections | where_exp: "section", "section.publish_date" %}
+{% else %}
+  {% assign nav_sections = all_sections %}
+{% endif %}
+
+{% assign current_index = nil %}
+{% for section in nav_sections %}
+  {% if section.url == page.url %}
+    {% assign current_index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+<nav class="site-nav project-section-site-nav" aria-label="Project section navigation">
+  <span class="project-section-nav-slot project-section-nav-previous">
+    {% if current_index != nil and current_index > 0 %}
+      {% assign previous_index = current_index | minus: 1 %}
+      {% assign previous_section = nav_sections[previous_index] %}
+      <a href="{{ previous_section.url | relative_url }}">← Previous</a>
+    {% endif %}
+  </span>
+
+  <span class="project-section-nav-slot project-section-nav-home">
+    {% if project_home %}
+      <a href="{{ project_home.url | relative_url }}">Project home</a>
+    {% else %}
+      <a href="{{ '/projects/' | relative_url }}">Projects</a>
+    {% endif %}
+  </span>
+
+  <span class="project-section-nav-slot project-section-nav-next">
+    {% if current_index != nil %}
+      {% assign next_index = current_index | plus: 1 %}
+      {% if next_index < nav_sections.size %}
+        {% assign next_section = nav_sections[next_index] %}
+        <a href="{{ next_section.url | relative_url }}">Next →</a>
+      {% endif %}
+    {% endif %}
+  </span>
+</nav>

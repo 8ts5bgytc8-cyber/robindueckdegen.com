@@ -1,0 +1,44 @@
+{% assign project_pages = site.pages | where: "layout", "project" %}
+{% assign project_home = project_pages | where: "project_key", page.project_key | first %}
+{% assign all_chapters = site.project_chapters | where: "project_key", page.project_key | sort: "chapter_order" %}
+
+{% if page.publish_date and project_home.publish_date %}
+  {% assign nav_chapters = all_chapters | where_exp: "chapter", "chapter.publish_date" %}
+{% else %}
+  {% assign nav_chapters = all_chapters %}
+{% endif %}
+
+{% assign current_index = nil %}
+{% for chapter in nav_chapters %}
+  {% if chapter.url == page.url %}
+    {% assign current_index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+<nav class="site-nav project-section-site-nav" aria-label="Project chapter navigation">
+  <span class="project-section-nav-slot project-section-nav-previous">
+    {% if current_index != nil and current_index > 0 %}
+      {% assign previous_index = current_index | minus: 1 %}
+      {% assign previous_chapter = nav_chapters[previous_index] %}
+      <a href="{{ previous_chapter.url | relative_url }}">← Previous</a>
+    {% endif %}
+  </span>
+
+  <span class="project-section-nav-slot project-section-nav-home">
+    {% if project_home %}
+      <a href="{{ project_home.url | relative_url }}">Project home</a>
+    {% else %}
+      <a href="{{ '/projects/' | relative_url }}">Projects</a>
+    {% endif %}
+  </span>
+
+  <span class="project-section-nav-slot project-section-nav-next">
+    {% if current_index != nil %}
+      {% assign next_index = current_index | plus: 1 %}
+      {% if next_index < nav_chapters.size %}
+        {% assign next_chapter = nav_chapters[next_index] %}
+        <a href="{{ next_chapter.url | relative_url }}">Next →</a>
+      {% endif %}
+    {% endif %}
+  </span>
+</nav>

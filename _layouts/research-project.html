@@ -1,0 +1,63 @@
+---
+layout: default
+project_styles: true
+content_class: research-project-page
+---
+<article class="project-detail research-project-detail">
+  <header class="project-header research-project-header">
+    {% if page.project_type %}
+      <p class="project-kicker">{{ page.project_type }}</p>
+    {% endif %}
+
+    <h1>{{ page.title }}</h1>
+
+    <div class="project-meta-line">
+      {% if page.dates %}<span>{{ page.dates }}</span>{% endif %}
+      {% if page.supervisor %}<span>Supervisor: {{ page.supervisor }}</span>{% endif %}
+      {% if page.institution %}<span>{{ page.institution }}</span>{% endif %}
+    </div>
+
+    {% if page.description %}
+      <p class="project-deck">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="project-body research-project-body">
+    {{ content }}
+  </div>
+
+  {% if page.pdf_url or page.arxiv_url or page.doi_url %}
+    <section class="research-links">
+      <h2>Links</h2>
+      <ul>
+        {% if page.pdf_url %}
+          <li><a href="{{ page.pdf_url | relative_url }}">PDF</a></li>
+        {% endif %}
+        {% if page.arxiv_url %}
+          <li><a href="{{ page.arxiv_url }}">arXiv</a></li>
+        {% endif %}
+        {% if page.doi_url %}
+          <li><a href="{{ page.doi_url }}">DOI / publication</a></li>
+        {% endif %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if page.project_key %}
+    {% assign project_posts = site.posts | where: "project_key", page.project_key %}
+    {% assign related_posts = project_posts | where_exp: "post", "post.publish_date" %}
+    {% if related_posts.size > 0 %}
+      <section class="project-related-notes research-related-notes">
+        <h2>Related writing</h2>
+        <ul>
+          {% for post in related_posts %}
+            <li>
+              <span>{{ post.publish_date | date: "%d %B %Y" }}</span>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
+  {% endif %}
+</article>

@@ -1,0 +1,40 @@
+---
+layout: default
+title: Research
+description: Research and academic work by Robin Dueck Degen.
+content_class: section-index-page
+---
+
+<section class="section-index">
+  <header class="section-index-header">
+    <h1>Research</h1>
+  </header>
+
+  {% assign research_pages = site.pages | where: "layout", "research-project" %}
+  {% assign public_research = research_pages | where_exp: "item", "item.publish_date" | sort: "publish_date" | reverse %}
+
+  <div class="project-index-list">
+    {% for item in public_research %}
+      <article class="project-index-entry">
+        <div class="project-index-meta">
+          {% if item.project_type %}{{ item.project_type }}{% endif %}
+          {% if item.dates %} · {{ item.dates }}{% endif %}
+        </div>
+
+        <h2>
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        </h2>
+
+        {% if item.description %}
+          <p>{{ item.description }}</p>
+        {% endif %}
+
+        <p class="index-action">
+          <a href="{{ item.url | relative_url }}">Open research page →</a>
+        </p>
+      </article>
+    {% else %}
+      <p class="placeholder">No research pages published yet.</p>
+    {% endfor %}
+  </div>
+</section>
