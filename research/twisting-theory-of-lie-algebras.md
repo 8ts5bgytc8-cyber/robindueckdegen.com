@@ -7,7 +7,6 @@ dates: "September 2026–Present"
 supervisor: "Dr. Curtis Wendlandt"
 institution: "University of Saskatchewan"
 project_key: "twisting-theory"
-description: "An in-progress study on Lie algebras which aims to cover the basics of Lie (co)algebra and bialgebra twists with connections to cohomology and more."
 permalink: /research/twisting-theory-of-lie-algebras/
 ---
 ## Overview
