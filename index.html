@@ -9,14 +9,10 @@ description: Robin Dueck Degen — honours mathematics student at the University
   <p class="home-intro">
     I am an honours mathematics student at the University of Saskatchewan.
   </p>
-  <p>
-    My current interests are centered on algebra, geometry, mechanics,
-    mathematical physics, and the analysis supporting those subjects.
-  </p>
 </section>
 
 <section class="home-block" id="research">
-  <h2>Current Research</h2>
+  <h2>Current Projects</h2>
 
   {% assign research_pages = site.pages | where: "layout", "research-project" %}
   {% assign public_research = research_pages | where_exp: "item", "item.publish_date" | sort: "publish_date" | reverse %}
@@ -41,14 +37,13 @@ description: Robin Dueck Degen — honours mathematics student at the University
       </p>
     </article>
   {% else %}
-    <p>No research pages published yet.</p>
+    <p></p>
   {% endfor %}
 </section>
 
 {% assign academic_posts = site.posts | where: "academic_featured", true | where_exp: "post", "post.publish_date" %}
 {% if academic_posts.size > 0 %}
 <section class="home-block" id="writing">
-  <h2>Selected Mathematical Writing</h2>
 
   {% for post in academic_posts limit:3 %}
     <article class="home-entry">
