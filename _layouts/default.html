@@ -27,6 +27,7 @@
     {% endunless %}
   {% endif %}
 <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {% if page.blog_styles or page.layout == "post" %}
   <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
