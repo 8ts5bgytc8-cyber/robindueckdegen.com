@@ -10,7 +10,7 @@ content_class: section-index-page
     <h1>Projects</h1>
   </header>
 
-  {% assign project_pages = site.pages | where: "layout", "project" %}
+  {% assign project_pages = site.pages | where_exp: "item", "item.layout == 'project' or item.layout == 'research-project'" %}
   {% assign published_projects = project_pages | where_exp: "project", "project.publish_date" %}
   {% assign published_projects = published_projects | sort: "publish_date" | reverse %}
 

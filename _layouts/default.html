@@ -7,7 +7,7 @@
   {% if page.noindex %}
   <meta name="robots" content="noindex, nofollow">
   {% endif %}
-  {% if page.layout == "post" or page.layout == "project" or page.layout == "research-project" %}
+  {% if page.layout == "project" or page.layout == "research-project" %}
     {% unless page.publish_date %}
   <meta name="robots" content="noindex, nofollow">
     {% endunless %}
@@ -61,14 +61,13 @@
           <a href="{{ site.github_url }}">GitHub</a>
         {% endif %}
       </p>
-      {% if page.layout == "post" %}
+      {% include navigation.html %}
+      {% if page.layout == "post" and page.collection == "posts" %}
         {% include post-navigation.html %}
       {% elsif page.layout == "project-chapter" %}
         {% include project-chapter-navigation.html %}
       {% elsif page.layout == "project-section" %}
         {% include project-section-navigation.html %}
-      {% else %}
-        {% include navigation.html %}
       {% endif %}
     </header>
 
