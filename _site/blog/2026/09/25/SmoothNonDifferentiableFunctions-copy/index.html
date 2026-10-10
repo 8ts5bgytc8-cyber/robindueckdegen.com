@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="My first look at gathering financial data for future analysis.">
+  <meta name="description" content="Mathematics, projects, and project notes.">
   
   
-<title>Gathering Data For Financial Experiments · Robin Dueck Degen</title>
+<title>Continuous Non-Differentiable Functions · Robin Dueck Degen</title>
   <link rel="stylesheet" href="/assets/css/main.css">
   
   <link rel="stylesheet" href="/assets/css/blog.css">
@@ -60,7 +60,7 @@
     
       <p class="post-date">25 September 2026</p>
     
-    <h1>Gathering Data For Financial Experiments</h1>
+    <h1>Continuous Non-Differentiable Functions</h1>
 
     <div class="post-meta">
       <span>Robin Dueck Degen</span>
@@ -68,12 +68,30 @@
     </div>
 
     
-      <p class="post-deck">My first look at gathering financial data for future analysis.</p>
-    
   </header>
 
   <div class="post-body">
-    <p>To start with, there is a good construction</p>
+    <p>To start with, let’s go over a basic construction for a class of non-differentiable smooth functions found in Pugh. He begins with the sawtooth function</p>
+
+\[\sigma(x)=
+\begin{cases}
+x+2n \quad &amp;x\in[2n,2n+1] \\
+2n+2-x \quad &amp; x\in(2n+1,2n+2]
+\end{cases}\]
+
+<p>which is periodic with period 2. We can double this period by multiplying $x$ by four. Now the idea behind the construction is that for $\sigma(x)$ there are non differentiable points at $1+2n$ for each $n$, then after doubling the period there will be non differentiable points at $1/2+n$, and in general for the $k^{th}$ doubling of the period there will be non differentiable points at every $\frac{1+2n}{4^k}$.</p>
+
+<p><!--should plot the discontinuities for 0,1 here--></p>
+
+<p>Notice how on the interval $[0,1]$ how the points of non-differentiability are the same as those of the binary number $1.111111\ldots$. Indeed, it is not difficult to convince yourself that the non-differentiable points of</p>
+
+\[f(x) = \sum_{k=0}^\infty \sigma(4^kx)\]
+
+<p>will cover the binary expansion of any number. However, it is not yet continuous, as this sum blows up at every point. The solution is to control the amplitude of each term in the summand. Define</p>
+
+\[\sigma_k(x)= \lambda^k \sigma(4^kx)\]
+
+<p>with $\lambda\in(0,1)$. Then by the Weirstrauss M test, since this is at most the geometric sum over $\lambda^k$, this now converges at every point and is continuous. We should now look at some approximations of this function so that we can attempt graph it.</p>
 
   </div>
 
