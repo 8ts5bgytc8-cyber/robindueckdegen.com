@@ -11,12 +11,12 @@
 .project-header {
   margin-bottom: 34px;
   padding-bottom: 23px;
-  border-bottom: 3px solid var(--orange);
+  border-bottom: 3px solid var(--accent);
 }
 
 .project-kicker {
   margin: 0 0 6px;
-  color: var(--orange-dark);
+  color: var(--metadata);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
   font-weight: bold;
@@ -26,7 +26,7 @@
 
 .project-header h1 {
   margin: 0 0 12px;
-  color: var(--purple-dark);
+  color: var(--heading);
   font-size: 34px;
   font-weight: normal;
   line-height: 1.1;
@@ -36,7 +36,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 4px 18px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
 }
@@ -44,7 +44,7 @@
 .project-deck {
   max-width: 660px;
   margin: 17px 0 0;
-  color: #453f3b;
+  color: var(--text-muted);
   font-size: 17px;
   font-style: italic;
 }
@@ -58,14 +58,14 @@
 .project-body h2,
 .project-related-notes h2 {
   margin: 34px 0 11px;
-  color: var(--purple-dark);
+  color: var(--heading);
   font-size: 23px;
   font-weight: normal;
 }
 
 .project-body h3 {
   margin: 27px 0 9px;
-  color: var(--purple-dark);
+  color: var(--heading);
   font-size: 19px;
   font-weight: normal;
 }
@@ -79,8 +79,8 @@
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid #cfc3ba;
-  background: #fff;
+  border: 1px solid var(--border);
+  background: var(--figure-bg);
 }
 
 .project-figure-wide {
@@ -89,21 +89,21 @@
 
 .project-figure figcaption {
   margin-top: 8px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
   line-height: 1.5;
 }
 
 .figure-title {
-  color: #4a403a;
+  color: var(--text);
   font-weight: bold;
 }
 
 .project-related-notes {
   margin-top: 42px;
   padding-top: 12px;
-  border-top: 1px dotted var(--rule);
+  border-top: 1px dotted var(--border);
 }
 
 .project-related-notes ul {
@@ -117,11 +117,11 @@
   grid-template-columns: 120px minmax(0, 1fr);
   gap: 15px;
   padding: 9px 0;
-  border-bottom: 1px solid #d1c6bd;
+  border-bottom: 1px solid var(--border);
 }
 
 .project-related-notes li span {
-  color: var(--muted);
+  color: var(--text-muted);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
   text-transform: uppercase;
@@ -139,14 +139,14 @@
   max-width: 690px;
   margin: 0 0 38px;
   padding: 18px 20px 16px;
-  border: 1px solid #b9aea5;
-  border-left: 6px solid var(--purple);
-  background: rgba(255, 255, 255, 0.26);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--accent);
+  background: var(--surface-bg);
 }
 
 .project-toc h2 {
   margin: 0 0 11px;
-  color: var(--purple-dark);
+  color: var(--heading);
   font-size: 22px;
   font-weight: normal;
 }
@@ -167,7 +167,7 @@
 .project-toc li > span {
   display: block;
   margin-top: 2px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 13px;
   line-height: 1.45;
 }
@@ -175,15 +175,15 @@
 /* Long-form project sections */
 .project-section-header .project-kicker a,
 .project-section-header .project-kicker a:visited {
-  color: var(--orange-dark);
+  color: var(--metadata);
 }
 
 .project-section-status {
   display: inline-block;
   margin: 14px 0 0;
   padding: 3px 7px;
-  color: var(--muted);
-  border: 1px solid var(--rule);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 9px;
   text-transform: uppercase;
@@ -194,7 +194,7 @@
   max-width: 690px;
   margin-top: 48px;
   padding-top: 16px;
-  border-top: 1px dotted var(--rule);
+  border-top: 1px dotted var(--border);
 }
 
 .project-section-site-nav {
@@ -261,12 +261,12 @@
   max-width: 690px;
   margin-top: 38px;
   padding-top: 12px;
-  border-top: 1px dotted var(--rule);
+  border-top: 1px dotted var(--border);
 }
 
 .chapter-toc h2 {
   margin: 0 0 11px;
-  color: var(--purple-dark);
+  color: var(--heading);
   font-size: 23px;
   font-weight: normal;
 }
@@ -283,7 +283,7 @@
 .chapter-toc li > span {
   display: block;
   margin-top: 2px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 13px;
 }
 
@@ -298,12 +298,12 @@
   max-width: 690px;
   margin-top: 38px;
   padding-top: 12px;
-  border-top: 1px dotted var(--rule);
+  border-top: 1px dotted var(--border);
 }
 
 .research-links h2 {
   margin: 0 0 10px;
-  color: var(--purple-dark);
+  color: var(--heading);
   font-size: 23px;
   font-weight: normal;
 }

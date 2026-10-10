@@ -1,52 +1,38 @@
 :root {
-  --outer: #000000;
-  --paper: #d9d7e7;
-  --paper-soft: #f0e9dd;
-  --ink: #17161b;
-  --muted: #625e69;
-  --rule: #837872;
-  --purple: #5a3d68;
-  --purple-dark: #3f2a49;
-  --orange: #7fcac3;
-  --orange-dark: #4c908a;
-  --sidebar-bg: #242329;
-  --sidebar-box: #34323a;
-  --sidebar-rule: #514d58;
-  --sidebar-text: #d8d4df;
   --max-width: 980px;
   --reading-width: 690px;
 }
 
 * { box-sizing: border-box; }
 
-html { background: var(--outer); }
+html { background: var(--page-surround); }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--outer);
-  color: var(--ink);
+  background: var(--page-surround);
+  color: var(--text);
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 16px;
   line-height: 1.58;
 }
 
 a {
-  color: var(--purple);
+  color: var(--link);
   text-decoration: underline;
   text-underline-offset: 0.14em;
 }
 
-a:visited { color: #6e5877; }
-a:hover, a:focus { color: var(--orange-dark); }
+a:visited { color: var(--link-visited); }
+a:hover, a:focus { color: var(--metadata); }
 
 .site-shell {
   width: min(var(--max-width), calc(100% - 36px));
   min-height: calc(100vh - 64px);
   margin: 0 auto 40px;
-  border: 4px solid #08080a;
+  border: 4px solid var(--frame-border);
   border-top: 0;
-  background: var(--paper);
+  background: var(--page-bg);
   display: flex;
   flex-direction: column;
 }
@@ -54,14 +40,14 @@ a:hover, a:focus { color: var(--orange-dark); }
 
 .site-header {
   padding: 19px 22px 13px;
-  color: #f3f0f7;
-  background: var(--purple-dark);
-  border-bottom: 5px solid var(--orange);
+  color: var(--header-text);
+  background: var(--header-bg);
+  border-bottom: 5px solid var(--accent);
 }
 
 .site-title,
 .site-title:visited {
-  color: #f3f0f7;
+  color: var(--header-text);
   font-size: 31px;
   font-weight: normal;
   line-height: 1.05;
@@ -69,38 +55,38 @@ a:hover, a:focus { color: var(--orange-dark); }
 }
 
 .site-title:hover,
-.site-title:focus { color: #ffffff; }
+.site-title:focus { color: var(--link-hover); }
 
 .site-header-links {
   margin: 5px 0 0;
-  color: #c9c4dc;
+  color: var(--text-muted);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
 }
 
 .site-header-links a,
 .site-header-links a:visited {
-  color: #b7dddd;
+  color: var(--link);
   text-decoration: none;
 }
 
 .site-header-links a:hover,
 .site-header-links a:focus {
-  color: #ffffff;
+  color: var(--link-hover);
   text-decoration: underline;
 }
 
 .site-header-link-divider {
   margin: 0 5px;
-  color: #8f889d;
+  color: var(--border);
 }
 
 .site-nav {
   margin-top: 14px;
   padding: 6px 8px;
-  background: #17151c;
-  border-top: 1px solid #5d5261;
-  border-bottom: 1px solid #080708;
+  background: var(--nav-bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--frame-border);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 11px;
 }
@@ -109,14 +95,14 @@ a:hover, a:focus { color: var(--orange-dark); }
 .site-nav a:visited {
   display: inline-block;
   margin-right: 18px;
-  color: #9fd7d2;
+  color: var(--link);
   font-weight: bold;
   text-decoration: none;
 }
 
 .site-nav a:hover,
 .site-nav a:focus {
-  color: #fff;
+  color: var(--link-hover);
   text-decoration: underline;
 }
 
@@ -140,7 +126,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 .home-main {
   min-width: 0;
   padding: 27px 31px 48px;
-  border-right: 2px solid #242226;
+  border-right: 2px solid var(--border);
 }
 
 .home-main > * {
@@ -154,10 +140,10 @@ a:hover, a:focus { color: var(--orange-dark); }
 .home-block > h2 {
   margin: 0 0 12px;
   padding: 3px 7px 4px;
-  color: #f5f2f8;
-  background: var(--purple);
-  border-left: 8px solid var(--orange);
-  border-bottom: 2px solid var(--purple-dark);
+  color: var(--band-text);
+  background: var(--band-bg);
+  border-left: 8px solid var(--accent);
+  border-bottom: 2px solid var(--border);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 13px;
   letter-spacing: 0.03em;
@@ -174,7 +160,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 
 .home-entry h3 {
   margin: 0 0 5px;
-  color: var(--purple-dark);
+  color: var(--heading);
   font-size: 20px;
   font-weight: normal;
   line-height: 1.15;
@@ -186,7 +172,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 
 .home-meta {
   margin: 0 0 3px;
-  color: var(--orange-dark);
+  color: var(--metadata);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
   font-weight: bold;
@@ -213,7 +199,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 
 .home-sidebar {
   padding: 18px 13px 36px;
-  color: var(--sidebar-text);
+  color: var(--text);
   background: var(--sidebar-bg);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 11px;
@@ -222,16 +208,16 @@ a:hover, a:focus { color: var(--orange-dark); }
 
 .home-sidebar section {
   margin: 0 0 17px;
-  border: 1px solid var(--sidebar-rule);
-  background: var(--sidebar-box);
+  border: 1px solid var(--border);
+  background: var(--surface-bg);
 }
 
 .home-sidebar h2 {
   margin: 0;
   padding: 4px 6px;
-  color: #f2ecef;
-  background: var(--purple);
-  border-bottom: 2px solid var(--orange);
+  color: var(--band-text);
+  background: var(--band-bg);
+  border-bottom: 2px solid var(--accent);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -245,9 +231,9 @@ a:hover, a:focus { color: var(--orange-dark); }
 
 .sidebar-list li { margin: 3px 0; }
 .home-sidebar a,
-.home-sidebar a:visited { color: #b7dddd; }
+.home-sidebar a:visited { color: var(--link); }
 .home-sidebar a:hover,
-.home-sidebar a:focus { color: #fff; }
+.home-sidebar a:focus { color: var(--link-hover); }
 
 /* Navigation/index template */
 .section-index-page {
@@ -263,12 +249,12 @@ a:hover, a:focus { color: var(--orange-dark); }
 .section-index-header {
   margin-bottom: 38px;
   padding-bottom: 22px;
-  border-bottom: 3px solid var(--orange);
+  border-bottom: 3px solid var(--accent);
 }
 
 .section-kicker {
   margin: 0 0 6px;
-  color: var(--orange-dark);
+  color: var(--metadata);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
   font-weight: bold;
@@ -278,7 +264,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 
 .section-index-header h1 {
   margin: 0 0 11px;
-  color: var(--purple-dark);
+  color: var(--heading);
   font-size: 34px;
   font-weight: normal;
   line-height: 1.08;
@@ -287,7 +273,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 .section-index-header p:last-child {
   max-width: 660px;
   margin-bottom: 0;
-  color: #3f3a37;
+  color: var(--text);
   font-size: 17px;
 }
 
@@ -298,14 +284,14 @@ a:hover, a:focus { color: var(--orange-dark); }
 
 .project-index-entry {
   padding: 23px 24px 21px;
-  border: 1px solid #a99e95;
-  border-left: 7px solid var(--purple);
-  background: #f7f0e4;
+  border: 1px solid var(--border);
+  border-left: 7px solid var(--accent);
+  background: var(--surface-bg);
 }
 
 .project-index-meta {
   margin-bottom: 6px;
-  color: var(--orange-dark);
+  color: var(--metadata);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
   font-weight: bold;
@@ -321,7 +307,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 }
 
 .project-index-entry h2 a {
-  color: var(--purple-dark);
+  color: var(--heading);
 }
 
 .project-index-entry p {
@@ -337,7 +323,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 }
 
 .placeholder {
-  color: var(--muted);
+  color: var(--text-muted);
   font-style: italic;
 }
 
@@ -346,16 +332,16 @@ a:hover, a:focus { color: var(--orange-dark); }
   justify-content: center;
   gap: 7px;
   padding: 8px 14px;
-  color: #bdb5bf;
-  background: #101014;
-  border-top: 5px solid var(--orange);
+  color: var(--text-muted);
+  background: var(--footer-bg);
+  border-top: 5px solid var(--accent);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
 }
 
 .site-footer a,
-.site-footer a:visited { color: #d2becf; }
-.site-footer a:hover { color: #ffffff; }
+.site-footer a:visited { color: var(--link); }
+.site-footer a:hover { color: var(--link-hover); }
 
 @media (max-width: 720px) {
   .site-shell {
@@ -374,7 +360,7 @@ a:hover, a:focus { color: var(--orange-dark); }
     padding: 23px 19px 38px;
     border-right: 0;
   }
-  .home-sidebar { border-top: 5px solid var(--orange); }
+  .home-sidebar { border-top: 5px solid var(--accent); }
   .course-list { columns: 1; }
 
   .section-index-page { padding: 28px 20px 42px; }
@@ -398,12 +384,12 @@ a:hover, a:focus { color: var(--orange-dark); }
 .cv-header {
   margin-bottom: 36px;
   padding-bottom: 18px;
-  border-bottom: 3px solid var(--orange);
+  border-bottom: 3px solid var(--accent);
 }
 
 .cv-header h1 {
   margin: 0;
-  color: var(--purple-dark);
+  color: var(--heading);
   font-size: 30px;
   font-weight: normal;
   line-height: 1.08;
@@ -417,10 +403,10 @@ a:hover, a:focus { color: var(--orange-dark); }
 .cv-section > h2 {
   margin: 0 0 16px;
   padding: 3px 7px 4px;
-  color: #f5f2f8;
-  background: var(--purple);
-  border-left: 8px solid var(--orange);
-  border-bottom: 2px solid var(--purple-dark);
+  color: var(--band-text);
+  background: var(--band-bg);
+  border-left: 8px solid var(--accent);
+  border-bottom: 2px solid var(--border);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 13px;
   letter-spacing: 0.03em;
@@ -440,7 +426,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 
 .cv-entry h3 {
   margin: 0 0 3px;
-  color: var(--purple-dark);
+  color: var(--heading);
   font-size: 20px;
   font-weight: normal;
   line-height: 1.2;
@@ -451,7 +437,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 }
 
 .cv-entry-subtitle {
-  color: var(--muted);
+  color: var(--text-muted);
   font-style: italic;
 }
 
@@ -465,7 +451,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 
 .cv-date {
   margin: 3px 0 0 !important;
-  color: var(--orange-dark);
+  color: var(--metadata);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
   font-weight: bold;
@@ -512,7 +498,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 .sidebar-item-meta {
   display: block;
   margin-top: 2px;
-  color: #aaa4b2;
+  color: var(--text-muted);
   font-size: 9px;
   line-height: 1.3;
   text-transform: uppercase;
@@ -521,7 +507,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 .sidebar-more {
   margin-top: 10px !important;
   padding-top: 7px;
-  border-top: 1px dotted var(--sidebar-rule);
+  border-top: 1px dotted var(--border);
 }
 
 
