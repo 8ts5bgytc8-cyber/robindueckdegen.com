@@ -1,7 +1,6 @@
 ---
 publish_date: 2026-09-25
 layout: post
-permalink: /blog/2026/09/25/GatheringDataForFinancialExperiments/
 title: "Gathering Data For Financial Experiments"
 description: "My first look at gathering financial data for future analysis."
 tags:
