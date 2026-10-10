@@ -62,7 +62,9 @@
         {% endif %}
       </p>
       {% if page.blog_area %}
-        {% include post-navigation.html %}
+        {% if page.collection == "posts" %}
+          {% include post-navigation.html %}
+        {% endif %}
       {% else %}
         {% include navigation.html %}
         {% if page.layout == "project-chapter" %}
