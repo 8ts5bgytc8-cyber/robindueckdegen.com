@@ -40,19 +40,3 @@ description: Robin Dueck Degen — honours mathematics student at the University
     <p></p>
   {% endfor %}
 </section>
-
-{% assign academic_posts = site.posts | where: "academic_featured", true | where_exp: "post", "post.publish_date" %}
-{% if academic_posts.size > 0 %}
-<section class="home-block" id="writing">
-
-  {% for post in academic_posts limit:3 %}
-    <article class="home-entry">
-      <p class="home-meta">{{ post.publish_date | date: "%d %B %Y" }}</p>
-      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-      {% if post.description %}
-        <p>{{ post.description }}</p>
-      {% endif %}
-    </article>
-  {% endfor %}
-</section>
-{% endif %}

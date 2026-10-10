@@ -43,21 +43,4 @@ content_class: research-project-page
     </section>
   {% endif %}
 
-  {% if page.project_key %}
-    {% assign project_posts = site.posts | where: "project_key", page.project_key %}
-    {% assign related_posts = project_posts | where_exp: "post", "post.publish_date" %}
-    {% if related_posts.size > 0 %}
-      <section class="project-related-notes research-related-notes">
-        <h2>Related writing</h2>
-        <ul>
-          {% for post in related_posts %}
-            <li>
-              <span>{{ post.publish_date | date: "%d %B %Y" }}</span>
-              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </section>
-    {% endif %}
-  {% endif %}
 </article>

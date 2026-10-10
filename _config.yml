@@ -23,6 +23,11 @@ collections:
 defaults:
   - scope:
       path: ""
+      type: posts
+    values:
+      blog_area: true
+  - scope:
+      path: ""
       type: notes
     values:
       layout: post
