@@ -61,14 +61,16 @@
           <a href="{{ site.github_url }}">GitHub</a>
         {% endif %}
       </p>
-      {% unless page.blog_area %}
-      {% include navigation.html %}
-      {% if page.layout == "project-chapter" %}
-        {% include project-chapter-navigation.html %}
-      {% elsif page.layout == "project-section" %}
-        {% include project-section-navigation.html %}
+      {% if page.blog_area %}
+        {% include post-navigation.html %}
+      {% else %}
+        {% include navigation.html %}
+        {% if page.layout == "project-chapter" %}
+          {% include project-chapter-navigation.html %}
+        {% elsif page.layout == "project-section" %}
+          {% include project-section-navigation.html %}
+        {% endif %}
       {% endif %}
-      {% endunless %}
     </header>
 
     <main class="page-content{% if page.layout == 'home' %} home-page{% elsif page.layout == 'post' %} blog-post-page{% elsif page.layout == 'project' or page.layout == 'research-project' or page.layout == 'project-chapter' or page.layout == 'project-section' %} project-page{% elsif page.layout == 'cv' %} home-page cv-page{% elsif page.content_class %} {{ page.content_class }}{% endif %}">
