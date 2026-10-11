@@ -20,7 +20,7 @@ which is periodic with period 2. We can double this period by multiplying $x$ by
 
  <!--should plot the discontinuities for 0,1 here-->
 
-Notice how on the interval $[0,1]$ how the points of non-differentiability are the same as those of the binary number $1.111111\ldots$. Indeed, it is not difficult to convince yourself that the non-differentiable points of 
+Notice how on the interval $[0,1]$ how the points of non-differentiability are the same as those of the binary number $x.xxxxxx\ldots$. Indeed, it is not difficult to convince yourself that the non-differentiable points of 
 
 $$
 f(x) = \sum_{k=0}^\infty \sigma(4^kx)
@@ -32,8 +32,9 @@ $$
 \sigma_k(x)= \lambda^k \sigma(4^kx)
 $$
 
-with $\lambda\in(0,1)$. Then by the Weirstrauss M test, since this is at most the geometric sum over $\lambda^k$, this now converges at every point and is continuous. We should now look at some approximations of this function so that we can attempt graph it.
+with $\lambda\in(0,1)$. Then by the Weirstrauss M test, since this is at most the geometric sum over $\lambda^k$, this now converges at every point and is continuous. We should now look at some approximations of this function so that we can attempt graph it. I wrote the following code 
 
+```python
 def sawtooth(h,n,iter):
     y = np.linspace(-1,1,2**n)
     y = 1-np.abs(y)
@@ -43,3 +44,7 @@ def sawtooth(h,n,iter):
         for j in range(1,2**n):
             y[j-1] = y[j-1] + y_k[j%2**(n-k)-1]
     return y
+```
+
+
+![Test]({{ '/assets/images/ContinuousNonDifferentiableFunctions/figure1.png' }})
