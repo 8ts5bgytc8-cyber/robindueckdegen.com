@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Continuous Non-Differentiable Functions"
-date: 2026-10-13 12:00:00 -0600
+date: 2026-09-13 12:00:00 -0600
 tags:
   - Math336
 ---
@@ -33,3 +33,13 @@ $$
 $$
 
 with $\lambda\in(0,1)$. Then by the Weirstrauss M test, since this is at most the geometric sum over $\lambda^k$, this now converges at every point and is continuous. We should now look at some approximations of this function so that we can attempt graph it.
+
+def sawtooth(h,n,iter):
+    y = np.linspace(-1,1,2**n)
+    y = 1-np.abs(y)
+    for k in range(1,iter):
+        y_k = np.linspace(-2**-k,2**-k,2**(n-k))
+        y_k = h**k*(1-2**k*np.abs(y_k))
+        for j in range(1,2**n):
+            y[j-1] = y[j-1] + y_k[j%2**(n-k)-1]
+    return y

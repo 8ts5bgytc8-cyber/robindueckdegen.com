@@ -2,11 +2,12 @@
    These settings apply to the main site, CV, projects, notes, and blog.
    Change the hexadecimal values below, save, then rebuild/refresh the site.
    The role mappings below reuse the palette so one edit affects every use.
-   Starting palette: dark olive and mustard gold, inspired by the supplied cover.
+   Palette: dark burgundy reading background with olive and mustard gold accents.
 */
 :root {
   /* Palette: edit these first. */
-  --olive: #394231;             /* Main reading background */
+  --burgundy: #3b2426;          /* Main reading background */
+  --olive: #394231;             /* Olive palette colour */
   --olive-deep: #293024;        /* Header and navigation */
   --olive-panel: #333c2d;       /* Cards, sidebar boxes and code */
   --olive-darkest: #20271d;    /* Sidebar and footer */
@@ -21,7 +22,7 @@
 
   /* Roles: replace an alias with a colour to adjust that area separately. */
   --page-surround: var(--near-black);
-  --page-bg: var(--olive);
+  --page-bg: var(--burgundy);
   --surface-bg: var(--olive-panel);
   --text: var(--cream);
   --text-muted: var(--sage-light);
