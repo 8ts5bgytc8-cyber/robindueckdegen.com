@@ -114,10 +114,13 @@ a:hover, a:focus { color: var(--metadata); }
 
 /* Homepage / professional landing template */
 .home-page {
+  display: flex;
+  flex-direction: column;
   padding: 0;
 }
 
 .home-layout {
+  flex: 1 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 215px;
   align-items: stretch;
@@ -352,9 +355,13 @@ a:hover, a:focus { color: var(--metadata); }
   }
 
   .page-content { padding: 25px 20px 38px; }
+  .page-content.home-page { padding: 0; }
   .site-nav a { margin: 2px 14px 2px 0; }
 
-  .home-layout { display: block; }
+  .home-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+  }
 
   .home-main {
     padding: 23px 19px 38px;
