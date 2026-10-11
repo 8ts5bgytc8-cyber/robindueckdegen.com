@@ -24,7 +24,7 @@ a {
 }
 
 a:visited { color: var(--link-visited); }
-a:hover, a:focus { color: var(--metadata); }
+a:hover, a:focus { color: var(--link-hover); }
 
 .site-shell {
   width: min(var(--max-width), calc(100% - 36px));
@@ -212,7 +212,7 @@ a:hover, a:focus { color: var(--metadata); }
 .home-sidebar section {
   margin: 0 0 17px;
   border: 1px solid var(--border);
-  background: var(--surface-bg);
+  background: var(--sidebar-surface-bg);
 }
 
 .home-sidebar h2 {

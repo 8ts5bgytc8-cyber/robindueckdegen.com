@@ -2,37 +2,39 @@
    These settings apply to the main site, CV, projects, notes, and blog.
    Change the hexadecimal values below, save, then rebuild/refresh the site.
    The role mappings below reuse the palette so one edit affects every use.
-   Palette: dark burgundy reading background with olive and mustard gold accents.
+   Palette: burgundy reading surfaces, deep olive framing, and antique gold accents.
 */
 :root {
   /* Palette: edit these first. */
   --burgundy: #3b2426;          /* Main reading background */
+  --burgundy-panel: #452e30;    /* Cards and contents panels */
+  --burgundy-code: #302325;     /* Code backgrounds */
   --olive: #394231;             /* Olive palette colour */
   --olive-deep: #293024;        /* Header and navigation */
   --olive-panel: #333c2d;       /* Cards, sidebar boxes and code */
   --olive-darkest: #20271d;    /* Sidebar and footer */
-  --gold: #e2ad2b;             /* Headings, links and accent rules */
-  --gold-soft: #d6c185;        /* Visited links */
-  --cream: #f1eddf;           /* Body text */
-  --sage-light: #c8cebc;      /* Secondary text */
-  --olive-rule: #68735c;      /* Borders and separators */
+  --gold: #d8b464;             /* Headings, links and accent rules */
+  --gold-soft: #c9b58b;        /* Visited links */
+  --cream: #eee5d8;           /* Body text */
+  --warm-muted: #cdbfb1;      /* Secondary text */
+  --warm-rule: #76665a;       /* Borders and separators */
   --warm-white: #fff5d6;      /* Hover and focus text */
-  --near-black: #151a12;      /* Outside the page */
-  --figure-paper: #f1eddf;    /* Background behind diagrams/images */
+  --near-black: #191615;      /* Outside the page */
+  --figure-paper: #eee5d8;    /* Background behind diagrams/images */
 
   /* Roles: replace an alias with a colour to adjust that area separately. */
   --page-surround: var(--near-black);
   --page-bg: var(--burgundy);
-  --surface-bg: var(--olive-panel);
+  --surface-bg: var(--burgundy-panel);
   --text: var(--cream);
-  --text-muted: var(--sage-light);
+  --text-muted: var(--warm-muted);
   --heading: var(--gold);
   --accent: var(--gold);
   --metadata: var(--gold);
   --link: var(--gold);
   --link-visited: var(--gold-soft);
   --link-hover: var(--warm-white);
-  --border: var(--olive-rule);
+  --border: var(--warm-rule);
   --frame-border: var(--near-black);
   --header-bg: var(--olive-deep);
   --header-text: var(--gold);
@@ -40,7 +42,8 @@
   --band-bg: var(--olive-deep);
   --band-text: var(--gold);
   --sidebar-bg: var(--olive-darkest);
+  --sidebar-surface-bg: var(--olive-panel);
   --footer-bg: var(--olive-darkest);
-  --code-bg: var(--olive-panel);
+  --code-bg: var(--burgundy-code);
   --figure-bg: var(--figure-paper);
 }
