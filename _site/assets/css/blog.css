@@ -17,16 +17,16 @@
   gap: 6px 22px;
   margin: 0 0 35px;
   padding: 8px 10px;
-  color: var(--text-muted);
-  background: var(--surface-bg);
-  border: 1px solid var(--border);
+  color: var(--blog-guide-text);
+  background: var(--blog-guide-bg);
+  border: 1px solid var(--blog-guide-border);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
 }
 
 .archive-year {
   margin: 36px 0 13px;
-  color: var(--heading);
+  color: var(--purple-dark);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 16px;
   letter-spacing: 0.03em;
@@ -35,8 +35,8 @@
 .archive-month {
   margin: 23px 0 8px;
   padding-bottom: 4px;
-  color: var(--metadata);
-  border-bottom: 1px dotted var(--border);
+  color: var(--orange-dark);
+  border-bottom: 1px dotted var(--rule);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 11px;
   text-transform: uppercase;
@@ -54,12 +54,12 @@
   grid-template-columns: 105px minmax(0, 1fr);
   gap: 16px;
   padding: 13px 0 16px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--post-list-border);
 }
 
 .post-list-date {
   padding-top: 3px;
-  color: var(--text-muted);
+  color: var(--muted);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
   text-transform: uppercase;
@@ -74,7 +74,7 @@
 
 .post-list-project {
   margin: 0 0 5px;
-  color: var(--metadata);
+  color: var(--orange-dark);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
   text-transform: uppercase;
@@ -82,7 +82,7 @@
 
 .post-list-description {
   margin: 0;
-  color: var(--text-muted);
+  color: var(--post-description);
   font-size: 14px;
 }
 
@@ -98,12 +98,12 @@
 .post-header {
   margin-bottom: 31px;
   padding-bottom: 20px;
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 2px solid var(--orange);
 }
 
 .post-date {
   margin: 0 0 7px;
-  color: var(--metadata);
+  color: var(--orange-dark);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
   font-weight: bold;
@@ -114,14 +114,14 @@
 .post-header h1 {
   max-width: 680px;
   margin: 0 0 9px;
-  color: var(--heading);
+  color: var(--purple-dark);
   font-size: 32px;
   font-weight: normal;
   line-height: 1.12;
 }
 
 .post-meta {
-  color: var(--text-muted);
+  color: var(--muted);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
 }
@@ -131,7 +131,7 @@
 .post-deck {
   max-width: 630px;
   margin: 15px 0 0;
-  color: var(--text-muted);
+  color: var(--post-deck);
   font-size: 17px;
   font-style: italic;
 }
@@ -144,14 +144,14 @@
 
 .post-body h2 {
   margin: 33px 0 10px;
-  color: var(--heading);
+  color: var(--purple-dark);
   font-size: 23px;
   font-weight: normal;
 }
 
 .post-body h3 {
   margin: 27px 0 9px;
-  color: var(--heading);
+  color: var(--purple-dark);
   font-size: 19px;
   font-weight: normal;
 }
@@ -165,21 +165,21 @@
   overflow-x: auto;
   padding: 12px 14px;
   background: var(--code-bg);
-  border: 1px solid var(--border);
+  border: 1px solid var(--code-border);
 }
 
 .post-body blockquote {
   margin: 22px 0;
   padding: 2px 0 2px 17px;
-  color: var(--text-muted);
-  border-left: 4px solid var(--accent);
+  color: var(--quote-text);
+  border-left: 4px solid var(--orange);
 }
 
 .post-footer {
   max-width: 680px;
   margin-top: 42px;
   padding-top: 15px;
-  border-top: 1px dotted var(--border);
+  border-top: 1px dotted var(--rule);
   font-family: Verdana, Tahoma, Arial, sans-serif;
   font-size: 10px;
 }

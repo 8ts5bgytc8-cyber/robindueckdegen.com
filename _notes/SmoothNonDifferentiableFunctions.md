@@ -11,7 +11,7 @@ To start with, let's go over a basic construction for a class of non-differentia
 $$
 \sigma(x)=
 \begin{cases}
-x+2n \quad &x\in[2n,2n+1] \\
+x-2n \quad &x\in[2n,2n+1] \\
 2n+2-x \quad & x\in(2n+1,2n+2]
 \end{cases}
 $$
@@ -47,4 +47,11 @@ def sawtooth(h,n,iter):
 ```
 
 
-![Test]({{ '/assets/images/ContinuousNonDifferentiableFunctions/figure1.png' }})
+<img
+  src="{{ '/assets/images/ContinuousNonDifferentiableFunctions/combined.png' | relative_url }}"
+  alt="Your image description"
+  style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
+
+
+![Test]({{ '/assets/images/ContinuousNonDifferentiableFunctions/iterations.gif' }})
+![Test]({{ '/assets/images/ContinuousNonDifferentiableFunctions/amplitude.gif' }})
