@@ -48,10 +48,10 @@ def sawtooth(h,n,iter):
 
 
 <img
-  src="{{ '/assets/images/ContinuousNonDifferentiableFunctions/combined.png' | relative_url }}"
+  src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/combined.png' | relative_url }}"
   alt="Your image description"
   style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
 
 
-![Test]({{ '/assets/images/ContinuousNonDifferentiableFunctions/iterations.gif' }})
-![Test]({{ '/assets/images/ContinuousNonDifferentiableFunctions/amplitude.gif' }})
+![Test]({{ '/assets/Images/ContinuousNonDifferentiableFunctions/iterations.gif' | relative_url }})
+![Test]({{ '/assets/Images/ContinuousNonDifferentiableFunctions/amplitude.gif' | relative_url }})
