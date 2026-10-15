@@ -431,7 +431,8 @@ a:hover, a:focus { color: var(--orange-dark); }
   min-width: 0;
 }
 
-.cv-entry h3 {
+.cv-entry h3,
+#coursework > h3 {
   margin: 0 0 3px;
   color: var(--purple-dark);
   font-size: 20px;
@@ -468,9 +469,7 @@ a:hover, a:focus { color: var(--orange-dark); }
 }
 
 .cv-course-list {
-  columns: 2;
-  column-gap: 38px;
-  margin: 0;
+  margin: 0 0 22px;
   padding-left: 20px;
 }
 
@@ -491,9 +490,6 @@ a:hover, a:focus { color: var(--orange-dark); }
     text-align: left;
   }
 
-  .cv-course-list {
-    columns: 1;
-  }
 }
 
 
