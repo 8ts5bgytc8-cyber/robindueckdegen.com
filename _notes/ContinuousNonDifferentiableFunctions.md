@@ -40,9 +40,9 @@ $$
 f(x) = \sum_{k=0}^\infty \lambda^k \sigma(2^kx)
 $$
 
-The main thing to note here is that we can use the Weirstrauss M test to show that so long as $\lambda<1$, the series will converge. This is because each $\sigma(2^kx)$ is at most one, and therefore the series is at most geometric. Since each $\sigma_k$ is continuous, the limit is continuous as well. However we cannot set $\lambda<1$ arbitrarily without losing the non differentiability condition. For instance, if $\lambda<\frac{1}{2}$ then in fact, as we will see, $f(x)$ is smooth at uncountably many points.  
+The main thing to note here is that we can use the Weirstrauss M test to show that so long as $\lambda<1$, the series will converge. This is because each $\sigma(2^kx)$ is at most one, and therefore the series is at most geometric. Since each $\sigma_k$ is continuous, the limit is continuous as well. However we cannot set $\lambda<1$ arbitrarily without losing the non differentiability condition. For instance, if $\lambda<\frac{1}{2}$ then in fact, as we will see, $f(x)$ is differentiable at uncountably many points.  
 
-For the first, note that for any given $k$ the slope of $\sigma_k$ is positive for any $x\in(\frac{n}{2^{k-1}},\frac{2n+1}{2^k})$, and negative for $x\in(\frac{2n+1}{2^k},\frac{n+1}{2^{k-1}})$. Since the slope of $\sigma_k$ is $\pm (2\lambda)^k$, it must be that $x$ being a member of the first means that $\sigma_k(x)$ has slope $(2\lambda)^k$, and $x$ in the second range means $\sigma_k(x)$ has slope $-(2\lambda)^k$. Because the above intervals are nested and decreasing, if $\sigma_k$ is smooth at $x$, it must be that $\sigma_l$ is smooth at $x$ for $l<k$. It follows that for any partial sum $f_m= \sum_{k=0}^{m} \sigma_k(x)$ the slope of any $x$ such that $x$ is in an interval of one of the above forms. Therefore, the derivative of $f_m$ at $x$ has the form
+For the first, note that for any given $k$ the slope of $\sigma_k$ is positive for any $x\in(\frac{n}{2^{k-1}},\frac{2n+1}{2^k})$, and negative for $x\in(\frac{2n+1}{2^k},\frac{n+1}{2^{k-1}})$. Since the slope of $\sigma_k$ is $\pm (2\lambda)^k$, it must be that $x$ being a member of the first means that $\sigma_k(x)$ has slope $(2\lambda)^k$, and $x$ in the second range means $\sigma_k(x)$ has slope $-(2\lambda)^k$. Because the above intervals are nested and decreasing, if $\sigma_k$ is differentiable at $x$, it must be that $\sigma_l$ is differentiable at $x$ for $l<k$. It follows that for any partial sum $f_m= \sum_{k=0}^{m} \sigma_k(x)$ the slope of any $x$ such that $x$ is in an interval of one of the above forms. Therefore, the derivative of $f_m$ at $x$ has the form
 
 $$
 D_{m} = \sum_{k=0}^{m} \pm (2\lambda)^k. 
@@ -104,3 +104,14 @@ The final aspect of this function which I wanted to point out was that it is sel
 <img
   src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/zoom.gif' | relative_url }}"
   style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
+
+
+## References
+
+[^pugh]: Charles C. Pugh, *Real Mathematical Analysis*, 2nd ed. (Springer, 2015), Chapter 4, §7, pp. 254–255. https://doi.org/10.1007/978-3-319-17771-7.
+
+[^haar]: Jordan Bell, *C[0,1]: The Faber–Schauder Basis, the Riesz Representation Theorem, and the Borel σ-Algebra* (2015), §4, pp. 6–8. https://jordanbell.info/LaTeX/mathematics/CK/CK.pdf.
+
+[^similarity]: Jeffrey C. Lagarias, “The Takagi Function and Its Properties,” in *Functions in Number Theory and Their Probabilistic Aspects*, RIMS Kôkyûroku Bessatsu B34 (2012), pp. 153–189, §4, Theorems 4.1–4.2. https://arxiv.org/abs/1112.4205.
+
+[^takagisurvey]: Pieter C. Allaart and Kiko Kawamura, “The Takagi Function: A Survey,” *Real Analysis Exchange* 37, no. 1 (2011–2012), pp. 1–54, §7.2. https://doi.org/10.14321/realanalexch.37.1.0001.
