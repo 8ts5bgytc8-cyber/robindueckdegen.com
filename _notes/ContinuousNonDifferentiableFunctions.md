@@ -1,15 +1,17 @@
 ---
 layout: post
-title: "Takagi Curves"
+title: "The Weirstrauss Function"
 date: 2026-09-13 12:00:00 -0600
 tags:
   - Math336
 ---
 
-![A gif I made which graphs the blancmange curve as the precision increases.]({{ '/assets/Images/ContinuousNonDifferentiableFunctions/iterations.gif' | relative_url }})
 
+<img
+  src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/iterations.gif' | relative_url }}"
+  style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
 
-I initially began by investigating a continuous non differentiable curve detailed in Pugh's Real Mathematical Analysis. He defines 
+I initially began by investigating a continuous non differentiable curve detailed in Pugh's Real Mathematical Analysis[^pugh]. He defines 
 
 $$
 \sigma_k(x)= (\frac{3}{4})^k \sigma(4^kx), \qquad f(x) = \sum_{k=0}^\infty \sigma_k(x)
@@ -25,7 +27,18 @@ x-2n \quad &x\in[2n,2n+1] \\
 \end{cases}
 $$
 
-which is periodic with period 2, and $\sigma_k$ has a period of $\frac{2}{4^k}$. I decided to change the period multiple from $4^k$ to $2^k$, as I liked the connections with binary expansions of numbers, and change the $\frac{3}{4}$ to a simple $\lambda$ to make the construction more general. However, as it turns out this type of function is actually called a Takagi curve, and the special case of these where $\lambda=1/2$ is called the Blanchemange curve. 
+which is periodic with period 2, and $\sigma_k$ has a period of $\frac{2}{4^k}$. I decided to change the period multiple from $4^k$ to $2^k$, as I liked the connections with binary expansions of numbers, and change the $\frac{3}{4}$ to a simple $\lambda$ to make the construction more general. Therefore $\sigma_k$ will be defined
+
+$$
+\sigma_k(x)=
+\begin{cases}
+\lambda^k(2^kx-2n) \quad &x\in[2n/2^k,(2n+1)/2^k] \\
+\lambda^k(2n+2-2^kx) \quad & x\in((2n+1)/2^k,(2n+2)/2^k]
+\end{cases}
+$$
+
+
+The construction found in [^pugh] is referred to as the Weirstrauss curve. After the adaptations I applied, as it turns out, this construction is very closely related to what are called blancmange curves, and a special case called the Takagi curve. Throughout I refer to [^lagrias] as to the details of said curves.
 
  Since in the case we desire to investigae we only double $x$, i.e. we have
 
@@ -40,9 +53,9 @@ $$
 f(x) = \sum_{k=0}^\infty \lambda^k \sigma(2^kx)
 $$
 
-The main thing to note here is that we can use the Weirstrauss M test to show that so long as $\lambda<1$, the series will converge. This is because each $\sigma(2^kx)$ is at most one, and therefore the series is at most geometric. Since each $\sigma_k$ is continuous, the limit is continuous as well. However we cannot set $\lambda<1$ arbitrarily without losing the non differentiability condition. For instance, if $\lambda<\frac{1}{2}$ then in fact, as we will see, $f(x)$ is differentiable at uncountably many points.  
+The main thing to note here is that we can use the Weirstrauss M test to show that so long as $\lambda<1$, the series will converge [^pugh]. This is because each $\sigma(2^kx)$ is at most one, and therefore the series is at most geometric. Since each $\sigma_k$ is continuous, the limit is continuous as well. However we cannot set $\lambda<1$ arbitrarily without losing the non differentiability condition. For instance, if $\lambda<\frac{1}{2}$ then in fact, as we will see, $f(x)$ is differentiable at uncountably many points.  
 
-For the first, note that for any given $k$ the slope of $\sigma_k$ is positive for any $x\in(\frac{n}{2^{k-1}},\frac{2n+1}{2^k})$, and negative for $x\in(\frac{2n+1}{2^k},\frac{n+1}{2^{k-1}})$. Since the slope of $\sigma_k$ is $\pm (2\lambda)^k$, it must be that $x$ being a member of the first means that $\sigma_k(x)$ has slope $(2\lambda)^k$, and $x$ in the second range means $\sigma_k(x)$ has slope $-(2\lambda)^k$. Because the above intervals are nested and decreasing, if $\sigma_k$ is differentiable at $x$, it must be that $\sigma_l$ is differentiable at $x$ for $l<k$. It follows that for any partial sum $f_m= \sum_{k=0}^{m} \sigma_k(x)$ the slope of any $x$ such that $x$ is in an interval of one of the above forms. Therefore, the derivative of $f_m$ at $x$ has the form
+To see this, note that for any given $k$ the slope of $\sigma_k$ is positive for any $x\in(\frac{n}{2^{k-1}},\frac{2n+1}{2^k})$, and negative for $x\in(\frac{2n+1}{2^k},\frac{n+1}{2^{k-1}})$. Since the slope of $\sigma_k$ is $\pm (2\lambda)^k$, it must be that $x$ being a member of the first means that $\sigma_k(x)$ has slope $(2\lambda)^k$, and $x$ in the second range means $\sigma_k(x)$ has slope $-(2\lambda)^k$. Because the above intervals are nested and decreasing, if $\sigma_k$ is differentiable at $x$, it must be that $\sigma_l$ is differentiable at $x$ for $l<k$. It follows that for any partial sum $f_m= \sum_{k=0}^{m} \sigma_k(x)$ the slope of any $x$ such that $x$ is in an interval of one of the above forms. Therefore, the derivative of $f_m$ at $x$ has the form
 
 $$
 D_{m} = \sum_{k=0}^{m} \pm (2\lambda)^k. 
@@ -59,13 +72,14 @@ We can see how the function starts out looking relatively smooth when $\lambda<1
   style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
 
 
-However, it should also be noted how suspiciously smooth the curve becomes very early in the animation. In fact if $\lambda=\frac{1}{4}$, $f$ converges to $x^2$. We can see this more clearly by graphing the derivative next to the graph of the function, and slowing down the change in $\lambda$
+However, it should also be noted how suspiciously smooth the curve becomes very early in the animation. In fact if $\lambda=\frac{1}{4}$, $f$ converges to $2x-x^2$. We can see this more clearly by graphing the approximate derivative next to the graph of the function, and slowing down the change in $\lambda$
+
 <img
   src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/derivative.gif' | relative_url }}"
   style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
 
 
-I won't go into the details for how to prove that $f$ converges to $x^2$ here, but it is noteworthy for the investigation of this function. The remainder of what I would like to investigate about this function are the integral, the derivative, and connections with different functional bases, further I would like to mention the self similar properties of this curve. For graphing the function I wrote the following code:
+I won't go into the details for how to prove that $f$ converges to $x^2$ here, but it is a noteworthy property of this function, and is visually quite obvious from the approximate derivative on the right hand side of the above graph. The remainder of what I would like to investigate about this function are the integral, the 'piecewise derivative' and connections with the Haar basis. Further I would like to mention the self similar properties of this curve. For graphing the function I wrote the following code:
 
 ```python
 def sawtooth(h,n,iter):
@@ -79,39 +93,138 @@ def sawtooth(h,n,iter):
     return y
 ```
 
-It works by considering each sawtooth an absolute value function, then adding them up in the correct way to obtain $f$. The any other code can be found on my github here: <a href="https://github.com/Rdueckd/AppliedProjects/tree/main/AnalysisExperiments/NowhereDifferentiable">github</a>.
+It works by considering each sawtooth an absolute value function, then adding them up in the correct way to obtain $f$. The any other code can be found on my github here: <a href="https://github.com/Rdueckd/AppliedProjects/tree/main/AnalysisExperiments/NowhereDifferentiable">github</a>. It should be noted that are some differences between the above code and what can be found on my github as I improved the code for efficiency, but it works essentially the same. All of the code for each of the animated graphs included here can also be found there. 
 
-We can see by varying the number of iterations next to the derivative of the function that there is a rather visually obvious connection to the derivative of the Blancmange curve, and the Haar basis:
+We can see by varying the number of iterations of the approximated curve next to the approximate derivative of the function that there is a rather visually obvious connection to the Haar basis, as can be seen below:
 
 <img
   src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/DerivativeIter.gif' | relative_url }}"
   style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
 
-We should therefore be able to show that Takagi curves are actually the integral of some sum of Haar functions. Now if we integrate one more time we can see that the integral of Takagi curves actually appear to be quite smooth:
+
+The relationship between the Haar basis and the sawtooth functions which the Weirstrauss function is made up of is detailed in section 4 of Bell here[^bell], but I go through it in sufficient detail for our puposes below. Because it is convenient with our domain, and the construction of our function, we will define 
+
+$$
+\chi_{n,k}(x) = 
+\begin{cases}
+1 \quad &x\in[2n/2^k,(2n+1)/2^k] \\
+-1 \quad & x\in((2n+1)/2^k,(2n+2)/2^k] \\
+0 \quad \text{otherwise}
+\end{cases}
+$$
+
+To be the $(n,k)^{th}$ Haar function. We will also define the $(n,k)^{th}$ sawtooth to be
+
+$$
+\sigma_{n,k}(x) = 
+\begin{cases}
+\lambda^k(2^kx-2n) \quad &x\in[2n/2^k,(2n+1)/2^k] \\
+\lambda^k(2n+2-2^kx) \quad & x\in((2n+1)/2^k,(2n+2)/2^k]
+0 \quad \text{otherwise}
+\end{cases}
+$$
+
+Now, consider the derivative of each individual function of the piecewise, it is clear that after taking these derivatives we should obtain an element of the Haar basis, and integrating any Haar basis element, we should similarly obtain a sawtooth. Define $\sigma_{n,k}'(x)$ to be the derivative of each individual function of the piecewise, then 
+
+$$
+\sigma_{n,k}'(x) = 
+\begin{cases}
+\lambda^k2^k \quad &x\in[2n/2^k,(2n+1)/2^k] \\
+-\lambda^k2^k \quad & x\in((2n+1)/2^k,(2n+2)/2^k] \\
+0 \quad \text{otherwise}
+\end{cases}
+= \lambda^k2^k\chi_{n,k}(x)
+$$
+
+Now, such an operation should be approximately equal to the numerical approximation of the derivative. This is because the numerical approximation takes the difference between successive points and then divides that by the number of points. My functions rely on there being an even number of points, so we only need to concern ourselves with when our array defining the sawtooth contains an even number of points. Let $\Delta x$ be the difference between any two successive points, and $N$ be the length of the array. The $n^{th}$ entry in the array for our approximated derivative will be 
+
+$$
+d_n = \frac{a_{n+1}-a_{n}}{\Delta x}
+$$
+
+Then because the points are evenly spaced, the approximated derivative should be essentially exact for any $n$ which is less than $N/2$, or greater than $N/2$. However, at exactly $N$, because of how ```numpy.linspace``` works and how I've constructed my arrays, the value on the left should be greater than the value on the right, and so despite $\lambda^k2^k$ being in between these points, the slope at that section will be negative. However, this ends up being negligable.   
+
+Now by our definitions of $\sigma_{n,k}'(x)$ and $\chi_{n,k}(x)$, since the Haar basis is orthonormal
+
+$$
+\frac{1}{2}\int_0^2 \frac{d\sigma_{n,k}}{dx}\chi_{n',k'} dx = \delta_{n,n'}\delta_{k,k'} \lambda^k 
+$$
+
+It now makes sense to find the decomposition of each approximate derivative of our approximated curve. I wrote the following code to this end
+
+```python
+def haardecomp(y):
+    m = len(y).bit_length()-1 # y must be lenght 2^n
+    Hk = np.ones(len(y))
+    Hk[1 << m-1:] -= 2
+    lambdas = np.zeros((m,m))
+    r = 1
+
+    for n in range(0,m):
+        yH = y.reshape(-1,1 << m-n) * Hk[::r] # multiply each section by the appropriate Haar basis element
+        for k in range(0, n+1):
+            lambdas[n,k] = np.sum(yH[k]) / (2**m-1) # integrate
+        r = r << 1
+    return lambdas
+```
+
+It produces a matrix of the following form:
+
+$$
+\begin{pmatrix}
+1      &   0     & 0          & \cdots & 0 \\
+1      & \lambda & 0          & \cdots & 0 \\
+1      & \lambda & \lambda^2  & \ddots & \vdots \\
+\vdots & \vdots  & \vdots     & \ddots & 0 \\
+1      & \lambda & \lambda^2  & \cdots & \lambda^{n-1}
+\end{pmatrix}
+$$
+
+Really the diagonal is all that matters in this case, but I opted to keep the full matrix as I may want to use this code to decompose other functions in the future, and the number of computations are small enough that it only takes a hundred or so milliseconds to run anyways. Setting $\lambda=0.75$, we can see that it produces the correct values
 
 <img
-  src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/integral.gif' | relative_url }}"
+  src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/figure4Haar.png' | relative_url }}"
   style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
 
-<!--Should replace the above graph with varying over iterations-->
+With error increasing with lambda
 
-Then it seems that we can naturally move between the Haar basis, the sawtooth 'basis', which we should show is in fact a basis, and some basis of smooth functions via integration and differentiation. 
+<img
+  src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/figure7Haar.png' | relative_url }}"
+  style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
 
-<!--use fourier transform at this point-->
+Notice as well that our earlier identity for the derivative between non differentiable points, $D_m$, matches with this new construction in terms of the Haar basis as 
 
-The final aspect of this function which I wanted to point out was that it is self similar. I want to show that the Blancmange curve is self similar around any point with a repeating decimal expansion, and that general takagi curves have self similarity with some linear error. 
+$$
+\sum_{k=0}^{m} \sum_{n=0}^k \chi_{n,k}(x) = \sum_{k=0}^{m} \pm (2\lambda)^k = D_{m} 
+$$
+
+For a given $x$.
+
+The final aspect of this function which I wanted to point out was that it is self similar. I want to show that the Blancmange curve is self similar around any point with a repeating decimal expansion, and that general takagi curves have self similarity with some linear error. We can see a visual demonstration of some of the self similarity properties of these curves.  
 
 <img
   src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/zoom.gif' | relative_url }}"
   style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
 
+I refer to Lagrias[^lagrias] for calculations and identities relating to the self similarity of our curve with the note that their function $<<x>>$ is related to  $\sigma$ via
+
+$$
+\sigma(x) = <<\frac{1}{2} x>>
+$$
+
+
+<!--Now if we integrate one more time we can see that the integral of our curve actually appears to be quite smooth:
+
+<img
+  src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/integral.gif' | relative_url }}"
+  style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">-->
 
 ## References
 
 [^pugh]: Charles C. Pugh, *Real Mathematical Analysis*, 2nd ed. (Springer, 2015), Chapter 4, §7, pp. 254–255. https://doi.org/10.1007/978-3-319-17771-7.
 
-[^haar]: Jordan Bell, *C[0,1]: The Faber–Schauder Basis, the Riesz Representation Theorem, and the Borel σ-Algebra* (2015), §4, pp. 6–8. https://jordanbell.info/LaTeX/mathematics/CK/CK.pdf.
+[^bell]: Jordan Bell, *C[0,1]: The Faber–Schauder Basis, the Riesz Representation Theorem, and the Borel σ-Algebra* (2015). https://jordanbell.info/LaTeX/mathematics/CK/CK.pdf.
 
-[^similarity]: Jeffrey C. Lagarias, “The Takagi Function and Its Properties,” in *Functions in Number Theory and Their Probabilistic Aspects*, RIMS Kôkyûroku Bessatsu B34 (2012), pp. 153–189, §4, Theorems 4.1–4.2. https://arxiv.org/abs/1112.4205.
+[^lagrias]: Jeffrey C. Lagarias, “The Takagi Function and Its Properties,” in *Functions in Number Theory and Their Probabilistic Aspects*, RIMS Kôkyûroku Bessatsu B34 (2012). https://arxiv.org/abs/1112.4205.
 
-[^takagisurvey]: Pieter C. Allaart and Kiko Kawamura, “The Takagi Function: A Survey,” *Real Analysis Exchange* 37, no. 1 (2011–2012), pp. 1–54, §7.2. https://doi.org/10.14321/realanalexch.37.1.0001.
+[^hong]: Don Hong, Jianzhong Wang, and Robert Gardner, "Orthonormal Wavelet Bases," Chapter 7 in *Real Analysis with an Introduction to Wavelets and Applications* (Academic Press, 2005), pp. 209–269. https://doi.org/10.1016/B978-012354861-0/50007-5.
