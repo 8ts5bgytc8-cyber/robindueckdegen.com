@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "The Weirstrauss Function"
+title: "A Modification to the Weirstrauss Function"
 date: 2026-09-13 12:00:00 -0600
-tags:
-  - Math336
 ---
 
 
