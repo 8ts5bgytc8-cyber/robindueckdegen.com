@@ -1,5 +1,0 @@
-# Cloudflare redirects (old /research/ URLs now live under /projects/)
-/research /projects/ 301
-/research/ /projects/ 301
-/research/twisting-theory-of-lie-algebras /projects/twisting-theory-of-lie-algebras/ 301
-/research/twisting-theory-of-lie-algebras/ /projects/twisting-theory-of-lie-algebras/ 301

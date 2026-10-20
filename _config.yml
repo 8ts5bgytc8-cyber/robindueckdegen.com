@@ -52,5 +52,9 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - wrangler.jsonc
+  - vendor/
+  - node_modules/
+  - .bundle/
 
 github_url: ""
