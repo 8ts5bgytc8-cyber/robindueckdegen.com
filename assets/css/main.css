@@ -575,3 +575,12 @@ a:hover, a:focus { color: var(--orange-dark); }
   padding: 0;
   list-style: none;
 }
+
+/* Summer topics list inside a CV entry */
+.cv-topics-label {
+  margin: 8px 0 2px !important;
+}
+
+.cv-topics {
+  margin-top: 0;
+}
