@@ -539,3 +539,39 @@ a:hover, a:focus { color: var(--orange-dark); }
   min-height: 100%;
   background: var(--sidebar-bg);
 }
+
+/* DOWNLOAD LINKS — see _includes/download.html and _includes/downloads-list.html */
+.download-link {
+  font-family: Verdana, Tahoma, Arial, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cv-header .download-link {
+  display: inline-block;
+}
+
+.downloads {
+  max-width: 690px;
+  margin-top: 38px;
+  padding-top: 12px;
+  border-top: 1px dotted var(--rule);
+}
+
+.downloads h2 {
+  margin: 0 0 10px;
+  color: var(--purple-dark);
+  font-size: 23px;
+  font-weight: normal;
+}
+
+.downloads ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

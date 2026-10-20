@@ -1,0 +1,16 @@
+{%- comment -%}
+  A single download link, usable anywhere (pages, layouts, notes).
+
+  Usage:
+    {% include download.html file="/assets/files/Robin-Dueck-Degen-CV.pdf" label="Download CV (PDF)" %}
+
+  - file:  path to a file in the repo (put files in /assets/files/), or a full https:// URL
+  - label: link text (optional; defaults to "Download")
+{%- endcomment -%}
+{%- assign dl_label = include.label | default: "Download" -%}
+{%- if include.file contains "://" -%}
+  {%- assign dl_href = include.file -%}
+{%- else -%}
+  {%- assign dl_href = include.file | relative_url -%}
+{%- endif -%}
+<a class="download-link" href="{{ dl_href }}" download>{{ dl_label }} ↓</a>

@@ -33,6 +33,8 @@ content_class: blog-post-page
     {{ content }}
   </div>
 
+  {% include downloads-list.html %}
+
   <footer class="post-footer">
     {% if page.project %}
       <p>

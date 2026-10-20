@@ -45,6 +45,9 @@ defaults:
       layout: project-section
       project_styles: true
 
+include:
+  - _redirects
+
 exclude:
   - README.md
   - Gemfile

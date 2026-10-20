@@ -25,7 +25,7 @@ x-2n \quad &x\in[2n,2n+1] \\
 \end{cases}
 $$
 
-which is periodic with period 2, and $\sigma_k$ has a period of $\frac{2}{4^k}$. I decided to change the period multiple from $4^k$ to $2^k$, as I liked the connections with binary expansions of numbers, and change the $\frac{3}{4}$ to a simple $\lambda$ to make the construction more general. Therefore $\sigma_k$ will be defined
+which is periodic with period 2, and $\sigma_k$ has a period of $\frac{2}{4^k}$. I decided to change the period multiple from $4^k$ to $2^k$, as I liked the connections with binary expansions of numbers, and change the $\frac{3}{4}$ to a simple $\lambda$ to make the construction more general. Therefore, we define $\sigma_k$ by
 
 $$
 \sigma_k(x)=
@@ -36,20 +36,15 @@ $$
 $$
 
 
-The construction found in [^pugh] is referred to as the Weirstrauss curve. After the adaptations I applied, as it turns out, this construction is very closely related to what are called blancmange curves, and a special case called the Takagi curve. Throughout I refer to [^lagrias] as to the details of said curves.
+The construction found in Pugh is, as Pugh states, "due to Weirstrauss"[^pugh]. After the adaptations I applied, as it turns out, this construction is very closely related to what are called blancmange curves, and a special case called the Takagi curve[^lagrias].
 
- Since in the case we desire to investigae we only double $x$, i.e. we have
+With these specific constructions in mind, the below will be the construction we will use for the rest of this document:
 
 $$
 \sigma_k(x)= \lambda^k \sigma(2^kx), \qquad f(x) = \sum_{k=0}^\infty \sigma_k(x)
 $$
 
-
- we also only halve the period for each increase in $k$. Now for $\sigma(x)$ there are non differentiable points at $1\pm 2n$ for each $n$, then after doubling there will be non differentiable points at $\frac{1+2n}{2}$, and in general for the $k^{th}$ doubling there will be non differentiable points at every $\frac{1+2n}{2^k}$. Notice how on the interval $[0,1]$ how the points of non-differentiability are the same as those of the binary number $x.xxxxxx\ldots$. Indeed, it is not difficult to convince yourself that the non-differentiable points of 
-
-$$
-f(x) = \sum_{k=0}^\infty \lambda^k \sigma(2^kx)
-$$
+We also only halve the period for each increase in $k$. Now for $\sigma(x)$ there are non differentiable points at $1\pm 2n$ for each $n$ (as well as at every integer), then after doubling there will be non differentiable points at $\frac{1+2n}{2}$, and in general for the $k^{th}$ doubling there will be non differentiable points at every $\frac{1+2n}{2^k}$. This will all be important information for the non differentiability of this curve, but first we should establish its continuity.
 
 The main thing to note here is that we can use the Weirstrauss M test to show that so long as $\lambda<1$, the series will converge [^pugh]. This is because each $\sigma(2^kx)$ is at most one, and therefore the series is at most geometric. Since each $\sigma_k$ is continuous, the limit is continuous as well. However we cannot set $\lambda<1$ arbitrarily without losing the non differentiability condition. For instance, if $\lambda<\frac{1}{2}$ then in fact, as we will see, $f(x)$ is differentiable at uncountably many points.  
 
@@ -59,9 +54,11 @@ $$
 D_{m} = \sum_{k=0}^{m} \pm (2\lambda)^k. 
 $$
 
-Now since the above sum is at most geometric, and the geometric sum is a cauchy sequence, it follows that the above is also a cauchy sequence and therefore converges. The intersection of these intervals corresponds with the set of all numbers which have no finite binary expansion, which is an uncountable set. 
+Which should be a Cauchy sequence, though I have yet to put in the time to actually show that it actually is. Making the reasonable assumption that it is, the intersection of the intervals where the derivative of $f_m$ is defined corresponds with the set of all numbers which have no finite binary expansion, which is an uncountable set. It should be the case then that for $\lambda<1/2$, that $f$ is differentiable on the set of all non-dyadic numbers.
 
-Now given $x\in (\frac{n}{2^{k-1}},\frac{2n+1}{2^k})\cup (\frac{2n+1}{2^k},\frac{n+1}{2^{k-1}})$ with binary expansion $y_1y_2y_3\ldots y_nx_0.x_1x_2x_3\ldots x_k \ldots$, if $x_0=0$, then $\sigma_0$ has a positive slope, and $x_0=1$ means that $\sigma_0$ has a negative slope, and so on. Therefore the signs of each term in the sum $D_m$ are determined by the binary expansion of $x$. 
+Now given $x\in (\frac{n}{2^{k-1}},\frac{2n+1}{2^k})\cup (\frac{2n+1}{2^k},\frac{n+1}{2^{k-1}})$ with binary expansion $y_1y_2y_3\ldots y_nx_0.x_1x_2x_3\ldots x_k \ldots$, if $x_0=0$, then $\sigma_0$ has a positive slope, and $x_0=1$ means that $\sigma_0$ has a negative slope, and so on. We might infer that the signs of each term in the sum $D_m$ are determined by the binary expansion of $x$, I believe that this is probably the case. 
+
+As to non differentiability, we know that at the very least the non-dyadic numbers will be non differentiable, and since every dyadic number is non differentiable
 
 We can see how the function starts out looking relatively smooth when $\lambda<1/2$, then as we further increase $\lambda$ we see the function becomes increasingly divergent.
 
@@ -77,7 +74,7 @@ However, it should also be noted how suspiciously smooth the curve becomes very 
   style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
 
 
-I won't go into the details for how to prove that $f$ converges to $x^2$ here, but it is a noteworthy property of this function, and is visually quite obvious from the approximate derivative on the right hand side of the above graph. The remainder of what I would like to investigate about this function are the integral, the 'piecewise derivative' and connections with the Haar basis. Further I would like to mention the self similar properties of this curve. For graphing the function I wrote the following code:
+I won't go into more detail on this convergence, but it is a noteworthy property of this function, and is visually quite obvious from the approximate derivative on the right hand side of the above graph. The remainder of what I would like to investigate about this function are the integral, the 'piecewise derivative' and connections with the Haar basis. I would also like to mention the self similar properties of this curve. For graphing the function I wrote the following code:
 
 ```python
 def sawtooth(h,n,iter):
@@ -91,9 +88,23 @@ def sawtooth(h,n,iter):
     return y
 ```
 
-It works by considering each sawtooth an absolute value function, then adding them up in the correct way to obtain $f$. The any other code can be found on my github here: <a href="https://github.com/Rdueckd/AppliedProjects/tree/main/AnalysisExperiments/NowhereDifferentiable">github</a>. It should be noted that are some differences between the above code and what can be found on my github as I improved the code for efficiency, but it works essentially the same. All of the code for each of the animated graphs included here can also be found there. 
+and it generates graphs like the one below:
 
-We can see by varying the number of iterations of the approximated curve next to the approximate derivative of the function that there is a rather visually obvious connection to the Haar basis, as can be seen below:
+<img
+  src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/combined.png' | relative_url }}"
+  style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
+
+It works by considering each sawtooth an absolute value function, then adding them up in the correct way to obtain $f$. Any other code can be found on my github here: <a href="https://github.com/Rdueckd/AppliedProjects/tree/main/AnalysisExperiments/NowhereDifferentiable">github</a>. It should be noted that are some differences between the above code and what can be found on my github as I improved the code for efficiency, but it works essentially the same. All of the code for each of the animated graphs included here can also be found there. 
+
+We can see by varying the number of iterations of the approximated curve next to the approximate derivative of the function that there is a rather visually obvious connection to the Haar basis. For the derivative I wrote the following:
+
+```python
+def derive(y):
+    yprime = np.gradient(y, 2 / (len(y) - 1))
+    return yprime
+```
+
+I graphed the approximated function on the left with its derivative on the right for $\lambda = 0.5$, as this made viewing the connection to the Haar basis the easiest:
 
 <img
   src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/DerivativeIter.gif' | relative_url }}"
@@ -117,7 +128,7 @@ $$
 \sigma_{n,k}(x) = 
 \begin{cases}
 \lambda^k(2^kx-2n) \quad &x\in[2n/2^k,(2n+1)/2^k] \\
-\lambda^k(2n+2-2^kx) \quad & x\in((2n+1)/2^k,(2n+2)/2^k]
+\lambda^k(2n+2-2^kx) \quad & x\in((2n+1)/2^k,(2n+2)/2^k] \\
 0 \quad \text{otherwise}
 \end{cases}
 $$
@@ -142,10 +153,10 @@ $$
 
 Then because the points are evenly spaced, the approximated derivative should be essentially exact for any $n$ which is less than $N/2$, or greater than $N/2$. However, at exactly $N$, because of how ```numpy.linspace``` works and how I've constructed my arrays, the value on the left should be greater than the value on the right, and so despite $\lambda^k2^k$ being in between these points, the slope at that section will be negative. However, this ends up being negligable.   
 
-Now by our definitions of $\sigma_{n,k}'(x)$ and $\chi_{n,k}(x)$, since the Haar basis is orthonormal
+Now by our definitions of $\sigma_{n,k}'(x)$ and $\chi_{n,k}(x)$, since the Haar basis is orthogonal
 
 $$
-\frac{1}{2}\int_0^2 \frac{d\sigma_{n,k}}{dx}\chi_{n',k'} dx = \delta_{n,n'}\delta_{k,k'} \lambda^k 
+\frac{1}{2}\int_0^2 \sigma_{n,k}'\chi_{r,s} dx = \delta_{n,r}\delta_{k,s} \lambda^k 
 $$
 
 It now makes sense to find the decomposition of each approximate derivative of our approximated curve. I wrote the following code to this end
@@ -159,32 +170,32 @@ def haardecomp(y):
     r = 1
 
     for n in range(0,m):
-        yH = y.reshape(-1,1 << m-n) * Hk[::r] # multiply each section by the appropriate Haar basis element
+        yH = y.reshape(-1,1 << m-n) * Hk[::r] # multiply each section of y by the appropriate Haar basis element
         for k in range(0, n+1):
             lambdas[n,k] = np.sum(yH[k]) / (2**m-1) # integrate
         r = r << 1
     return lambdas
 ```
 
-It produces a matrix of the following form:
+Which produces a matrix of the following form:
 
 $$
 \begin{pmatrix}
-1      &   0     & 0          & \cdots & 0 \\
-1      & \lambda & 0          & \cdots & 0 \\
-1      & \lambda & \lambda^2  & \ddots & \vdots \\
-\vdots & \vdots  & \vdots     & \ddots & 0 \\
-1      & \lambda & \lambda^2  & \cdots & \lambda^{n-1}
+1          &   0         & 0          & \cdots & 0 \\
+\lambda    & \lambda     & 0          & \cdots & 0 \\
+\lambda^2  & \lambda^2   & \lambda^2  & \ddots & \vdots \\
+\vdots     & \vdots      & \vdots     & \ddots & 0 \\
+\lambda^{n-1} & \lambda^{n-1} & \lambda^{n-1} & \cdots & \lambda^{n-1}
 \end{pmatrix}
 $$
 
-Really the diagonal is all that matters in this case, but I opted to keep the full matrix as I may want to use this code to decompose other functions in the future, and the number of computations are small enough that it only takes a hundred or so milliseconds to run anyways. Setting $\lambda=0.75$, we can see that it produces the correct values
+Really the diagonal is all that matters in this case, but I opted to keep the full matrix as I may want to use this code to decompose other functions in the future, and the number of computations are small enough that it only takes a hundred or so milliseconds to run anyways. Setting $\lambda=0.5$, we can see that it produces the correct values
 
 <img
   src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/figure4Haar.png' | relative_url }}"
   style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
 
-With error increasing with lambda
+Setting $\lambda = 0, 75$, we can see that the error increases with lambda
 
 <img
   src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/figure7Haar.png' | relative_url }}"
@@ -198,13 +209,13 @@ $$
 
 For a given $x$.
 
-The final aspect of this function which I wanted to point out was that it is self similar. I want to show that the Blancmange curve is self similar around any point with a repeating decimal expansion, and that general takagi curves have self similarity with some linear error. We can see a visual demonstration of some of the self similarity properties of these curves.  
+The final aspect of this function which I wanted to point out was that it is self similar. I want to show that the Takagi curve is self similar around any point with a repeating decimal expansion, and that general blancmange curves have self similarity with some linear error. Below is linked an animated zoom into a section of the Takagi curve.
 
 <img
   src="{{ '/assets/Images/ContinuousNonDifferentiableFunctions/zoom.gif' | relative_url }}"
   style="display: block; margin: 1em auto; width: 700px; max-width: 100%; height: auto;">
 
-I refer to Lagrias[^lagrias] for calculations and identities relating to the self similarity of our curve with the note that their function $<<x>>$ is related to  $\sigma$ via
+I refer to [^lagrias] for calculations and identities relating to the self similarity of our curve with the note that their function $<<x>>$ is related to  $\sigma$ via
 
 $$
 \sigma(x) = <<\frac{1}{2} x>>

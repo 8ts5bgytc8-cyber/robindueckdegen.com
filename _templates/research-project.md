@@ -1,17 +1,21 @@
 ---
 layout: research-project
-title: "Research Title"
+title: "Project Title"
 project_type: "Paper / Preprint / Thesis"
 dates: "Month YYYY–Present"
 supervisor: ""
 institution: ""
 project_key: "short-stable-key"
 description: "Short abstract-style description."
-permalink: /research/research-slug/
+permalink: /projects/project-slug/
 pdf_url: ""
 arxiv_url: ""
 doi_url: ""
-# Add when ready to appear in Research:
+# Optional downloadable files (put them in /assets/files/):
+# downloads:
+#   - label: "Notes (PDF)"
+#     file: /assets/files/notes.pdf
+# Add when ready to appear in Projects:
 # publish_date: 2026-10-03
 ---
 

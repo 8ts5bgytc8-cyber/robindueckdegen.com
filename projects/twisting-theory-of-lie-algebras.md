@@ -7,7 +7,7 @@ dates: "September 2026–Present"
 supervisor: "Dr. Curtis Wendlandt"
 institution: "University of Saskatchewan"
 project_key: "twisting-theory"
-permalink: /research/twisting-theory-of-lie-algebras/
+permalink: /projects/twisting-theory-of-lie-algebras/
 ---
 ## Overview
 

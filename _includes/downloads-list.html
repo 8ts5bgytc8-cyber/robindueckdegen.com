@@ -1,0 +1,20 @@
+{%- comment -%}
+  Renders page.downloads from front matter as a list of download links.
+
+  Front matter example:
+    downloads:
+      - label: "Slides (PDF)"
+        file: /assets/files/slides.pdf
+      - label: "Notes (PDF)"
+        file: /assets/files/notes.pdf
+{%- endcomment -%}
+{%- if page.downloads and page.downloads.size > 0 -%}
+<section class="downloads">
+  <h2>Downloads</h2>
+  <ul>
+    {%- for item in page.downloads %}
+    <li>{% include download.html file=item.file label=item.label %}</li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif -%}

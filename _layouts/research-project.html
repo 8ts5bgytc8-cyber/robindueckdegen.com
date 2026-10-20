@@ -26,6 +26,8 @@ content_class: research-project-page
     {{ content }}
   </div>
 
+  {% include downloads-list.html %}
+
   {% if page.pdf_url or page.arxiv_url or page.doi_url %}
     <section class="research-links">
       <h2>Links</h2>
