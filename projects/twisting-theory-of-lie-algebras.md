@@ -30,6 +30,7 @@ This project will, firstly, summarize my summer research done under the supervis
 4. {: #ref-chari-pressley} Vyjayanthi Chari and Andrew Pressley, *A Guide to Quantum Groups* (Cambridge University Press, 1994).
 5. {: #ref-frenkel-benzi} Edward Frenkel and David Ben-Zvi, *Vertex Algebras and Algebraic Curves*, 2nd ed., Mathematical Surveys and Monographs, vol. 88 (American Mathematical Society, 2004). <https://doi.org/10.1090/surv/088>
 6. {: #ref-majid} Shahn Majid, *Foundations of Quantum Group Theory* (Cambridge University Press, 1995).
+7. {: #ref-erdwillie} Karin Erdmann and Mark J. Wildon, *Introduction to Lie Algebras*, Springer Undergraduate Mathematics Series (Springer, 2006). https://doi.org/10.1007/1-84628-490-2.
 
 <!-- Unused references, kept for later (convert to numbered lines like the ones above when needed):
 
