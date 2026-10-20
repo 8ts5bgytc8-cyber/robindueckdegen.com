@@ -1,4 +1,14 @@
 <aside class="home-sidebar" aria-label="Homepage sidebar">
+<section>
+    <h2>Contact</h2>
+    <ul class="sidebar-list">
+    <li>
+        <a href="mailto:dueck.degen@usask.com">Email: dueck.degen@usask.com</a>
+    </li>
+    <li>Location: Saskatoon, SK</li>
+    </ul>
+</section>
+
   <section>
     <h2>Academic</h2>
     <ul class="sidebar-list">
@@ -8,7 +18,7 @@
   </section>
 
   <!--<section>
-    <h2>Current Research</h2>
+    <h2>Current Projects</h2>
     {% assign research_pages = site.pages | where: "layout", "research-project" %}
     {% assign public_research = research_pages | where_exp: "item", "item.publish_date" %}
     <ul class="sidebar-list sidebar-feature-list">
@@ -20,7 +30,7 @@
           {% endif %}
         </li>
       {% else %}
-        <li>No research pages published yet.</li>
+        <li>No project pages published yet.</li>
       {% endfor %}
     </ul>
   </section>-->
@@ -30,17 +40,6 @@
     <ul class="sidebar-list">
       <li><a href="https://www.linkedin.com/in/robin-dueck-degen-8a406a20a">LinkedIn</a></li>
       <li><a href="{{ https://github.com/Rdueckd }}">GitHub</a></li>
-    </ul>
-  </section>
-
-
-  <section>
-    <h2>Contact</h2>
-    <ul class="sidebar-list">
-      <li>
-        <a href="mailto:dueck.degen@usask.com">Email: dueck.degen@usask.com</a>
-      </li>
-      <li>Location: Saskatoon, Saskatchewan</li>
     </ul>
   </section>
 </aside>
