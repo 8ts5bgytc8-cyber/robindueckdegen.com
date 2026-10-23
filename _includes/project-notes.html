@@ -1,0 +1,12 @@
+{%- comment -%}
+  Collects the notes that belong to the project with key `key`, oldest first,
+  and stores them in `project_notes`.
+
+  A note belongs to a project when its front matter has the same `project_key`.
+  Only notes with a `publish_date` are listed, unless `include.all` is true.
+{%- endcomment -%}
+{%- assign project_notes = site.notes | where: "project_key", include.key -%}
+{%- unless include.all -%}
+  {%- assign project_notes = project_notes | where_exp: "note", "note.publish_date" -%}
+{%- endunless -%}
+{%- assign project_notes = project_notes | sort: "date" -%}

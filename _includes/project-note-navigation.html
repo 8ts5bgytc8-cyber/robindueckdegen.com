@@ -1,0 +1,46 @@
+{%- comment -%}
+  Navigation bar for a note that belongs to a project (front matter `project_key`).
+  ← Previous | Project home | Next →, stepping through that project's notes in date order.
+  A note without a publish_date (a draft) steps through all of the project's notes.
+{%- endcomment -%}
+{% include project-home.html %}
+{% if page.publish_date %}
+  {% include project-notes.html key=page.project_key %}
+{% else %}
+  {% include project-notes.html key=page.project_key all=true %}
+{% endif %}
+
+{% assign current_index = nil %}
+{% for note in project_notes %}
+  {% if note.url == page.url %}{% assign current_index = forloop.index0 %}{% endif %}
+{% endfor %}
+
+<nav class="site-nav project-section-site-nav" aria-label="Project note navigation">
+  <span class="project-section-nav-slot project-section-nav-previous">
+    {% if current_index != nil and current_index > 0 %}
+      {% assign previous_index = current_index | minus: 1 %}
+      <a href="{{ project_notes[previous_index].url | relative_url }}">← Previous</a>
+    {% else %}
+      <span aria-disabled="true">← Previous</span>
+    {% endif %}
+  </span>
+
+  <span class="project-section-nav-slot project-section-nav-home">
+    {% if project_home %}
+      <a href="{{ project_home.url | relative_url }}">Project home</a>
+    {% else %}
+      <a href="{{ '/projects/' | relative_url }}">Projects</a>
+    {% endif %}
+  </span>
+
+  <span class="project-section-nav-slot project-section-nav-next">
+    {% if current_index != nil %}
+      {% assign next_index = current_index | plus: 1 %}
+      {% if next_index < project_notes.size %}
+        <a href="{{ project_notes[next_index].url | relative_url }}">Next →</a>
+      {% else %}
+        <span aria-disabled="true">Next →</span>
+      {% endif %}
+    {% endif %}
+  </span>
+</nav>

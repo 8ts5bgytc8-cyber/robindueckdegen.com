@@ -1,0 +1,13 @@
+{%- comment -%}
+  Finds the project landing page for page.project_key and stores it in `project_home`.
+  Works for both the `project` and `research-project` layouts.
+{%- endcomment -%}
+{%- assign project_home = nil -%}
+{%- for candidate in site.pages -%}
+  {%- if candidate.project_key == page.project_key -%}
+    {%- if candidate.layout == "project" or candidate.layout == "research-project" -%}
+      {%- assign project_home = candidate -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}

@@ -1,0 +1,41 @@
+{%- comment -%}
+  Sidebar for an individual project page.
+
+  - Related notes: every note in _notes/ whose front matter has
+      project_key: <this project's project_key>
+    and a publish_date. Oldest first.
+  - Downloads: the project's own `downloads:` front matter list.
+{%- endcomment -%}
+{% include project-notes.html key=page.project_key %}
+<aside class="home-sidebar project-sidebar" aria-label="Project sidebar">
+  {% if project_notes.size > 0 %}
+  <section>
+    <h2>Related notes</h2>
+    <ul class="sidebar-list">
+      {% for note in project_notes %}
+      <li><a href="{{ note.url | relative_url }}">{{ note.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if page.downloads and page.downloads.size > 0 %}
+  <section>
+    <h2>Downloads</h2>
+    <ul class="sidebar-list">
+      {% for item in page.downloads %}
+      <li>{% include download.html file=item.file label=item.label %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <section>
+    <h2>Site</h2>
+    <ul class="sidebar-list">
+      <li><a href="{{ '/projects/' | relative_url }}">All projects</a></li>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li><a href="{{ '/cv/' | relative_url }}">CV</a></li>
+    </ul>
+  </section>
+</aside>

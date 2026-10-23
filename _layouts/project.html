@@ -3,6 +3,8 @@ layout: default
 project_styles: true
 content_class: project-page
 ---
+<div class="home-layout project-layout">
+<div class="home-main project-main">
 <article class="project-detail">
   <header class="project-header">
     {% if page.project_type %}<p class="project-kicker">{{ page.project_type }}</p>{% endif %}
@@ -64,3 +66,6 @@ content_class: project-page
   {% endif %}
 
 </article>
+</div>
+{% include project-sidebar.html %}
+</div>

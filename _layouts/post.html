@@ -14,7 +14,13 @@ content_class: blog-post-page
 
     <div class="post-meta">
       <span>Robin Dueck Degen</span>
-      {% if page.project %}
+      {% if page.project_key %}
+        {% include project-home.html %}
+        {% if project_home %}
+          <span class="meta-divider">·</span>
+          <span>Part of: <a href="{{ project_home.url | relative_url }}">{{ project_home.title }}</a></span>
+        {% endif %}
+      {% elsif page.project %}
         <span class="meta-divider">·</span>
         {% if page.project_url %}
           <span>Part of: <a href="{{ page.project_url | relative_url }}">{{ page.project }}</a></span>

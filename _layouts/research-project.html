@@ -3,6 +3,8 @@ layout: default
 project_styles: true
 content_class: research-project-page
 ---
+<div class="home-layout project-layout">
+<div class="home-main project-main">
 <article class="project-detail research-project-detail">
   <header class="project-header research-project-header">
     {% if page.project_type %}
@@ -26,8 +28,6 @@ content_class: research-project-page
     {{ content }}
   </div>
 
-  {% include downloads-list.html %}
-
   {% if page.pdf_url or page.arxiv_url or page.doi_url %}
     <section class="research-links">
       <h2>Links</h2>
@@ -46,3 +46,6 @@ content_class: research-project-page
   {% endif %}
 
 </article>
+</div>
+{% include project-sidebar.html %}
+</div>

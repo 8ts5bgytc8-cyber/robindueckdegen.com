@@ -11,7 +11,7 @@ permalink: /projects/project-slug/
 pdf_url: ""
 arxiv_url: ""
 doi_url: ""
-# Optional downloadable files (put them in /assets/files/):
+# Optional downloadable files (put them in /assets/files/), shown in the sidebar:
 # downloads:
 #   - label: "Notes (PDF)"
 #     file: /assets/files/notes.pdf
@@ -25,3 +25,6 @@ Write a concise description or abstract here.
 
 Do not reproduce the full paper on the website; use `pdf_url`, `arxiv_url`,
 or `doi_url` above when those become available.
+
+Notes attached to this project (front matter `project_key` matching above) are listed
+automatically under "Related notes" in the sidebar. See _templates/project-note.md.

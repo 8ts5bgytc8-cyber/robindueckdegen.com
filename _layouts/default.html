@@ -32,7 +32,9 @@
   {% if page.blog_styles or page.layout == "post" %}
   <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
   {% endif %}
-  {% if page.project_styles or page.layout == "project" or page.layout == "research-project" or page.layout == "project-chapter" or page.layout == "project-section" %}
+  {% if page.collection == "notes" and page.project_key %}
+  <link rel="stylesheet" href="{{ '/assets/css/project.css' | relative_url }}">
+  {% elsif page.project_styles or page.layout == "project" or page.layout == "research-project" or page.layout == "project-chapter" or page.layout == "project-section" %}
   <link rel="stylesheet" href="{{ '/assets/css/project.css' | relative_url }}">
   {% endif %}
   <script>
@@ -68,6 +70,9 @@
         {% endif %}
       {% else %}
         {% include navigation.html %}
+        {% if page.collection == "notes" and page.project_key %}
+          {% include project-note-navigation.html %}
+        {% endif %}
         {% if page.layout == "project-chapter" %}
           {% include project-chapter-navigation.html %}
         {% elsif page.layout == "project-section" %}
@@ -76,7 +81,7 @@
       {% endif %}
     </header>
 
-    <main class="page-content{% if page.layout == 'home' %} home-page{% elsif page.layout == 'post' %} blog-post-page{% elsif page.layout == 'project' or page.layout == 'research-project' or page.layout == 'project-chapter' or page.layout == 'project-section' %} project-page{% elsif page.layout == 'cv' %} home-page cv-page{% elsif page.content_class %} {{ page.content_class }}{% endif %}">
+    <main class="page-content{% if page.layout == 'home' %} home-page{% elsif page.layout == 'post' %} blog-post-page{% elsif page.layout == 'project' or page.layout == 'research-project' %} home-page project-page project-with-sidebar{% elsif page.layout == 'project-chapter' or page.layout == 'project-section' %} project-page{% elsif page.layout == 'cv' %} home-page cv-page{% elsif page.content_class %} {{ page.content_class }}{% endif %}">
       {{ content }}
     </main>
 

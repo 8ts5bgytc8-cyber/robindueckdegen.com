@@ -319,3 +319,28 @@
   font-size: 10px;
   text-transform: uppercase;
 }
+
+/* Individual project pages with a sidebar (Related notes, Downloads) */
+.page-content.project-with-sidebar {
+  padding: 0;
+}
+
+.project-with-sidebar .project-main {
+  padding: 40px 31px 58px;
+}
+
+.project-with-sidebar .project-main > .project-detail {
+  max-width: 690px;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .project-with-sidebar .project-main {
+    padding: 28px 19px 38px;
+  }
+}
+
+/* Greyed-out Previous/Next at the ends of a project's notes */
+.project-section-site-nav [aria-disabled="true"] {
+  opacity: 0.4;
+}
