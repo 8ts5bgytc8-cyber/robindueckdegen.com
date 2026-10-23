@@ -68,11 +68,10 @@
         {% if page.collection == "posts" %}
           {% include post-navigation.html %}
         {% endif %}
+      {% elsif page.collection == "notes" and page.project_key %}
+        {% include project-note-navigation.html %}
       {% else %}
         {% include navigation.html %}
-        {% if page.collection == "notes" and page.project_key %}
-          {% include project-note-navigation.html %}
-        {% endif %}
         {% if page.layout == "project-chapter" %}
           {% include project-chapter-navigation.html %}
         {% elsif page.layout == "project-section" %}
