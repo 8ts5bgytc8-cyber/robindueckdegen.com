@@ -58,7 +58,7 @@ Which should be a Cauchy sequence, though I have yet to put in the time to actua
 
 Now given $x\in (\frac{n}{2^{k-1}},\frac{2n+1}{2^k})\cup (\frac{2n+1}{2^k},\frac{n+1}{2^{k-1}})$ with binary expansion $y_1y_2y_3\ldots y_nx_0.x_1x_2x_3\ldots x_k \ldots$, if $x_0=0$, then $\sigma_0$ has a positive slope, and $x_0=1$ means that $\sigma_0$ has a negative slope, and so on. We might infer that the signs of each term in the sum $D_m$ are determined by the binary expansion of $x$, I believe that this is probably the case. 
 
-As to non differentiability, we know that at the very least the non-dyadic numbers will be non differentiable, and since every dyadic number is non differentiable
+As to non differentiability, we know that at the very least the non-dyadic numbers will be non differentiable, and since every dyadic number is non differentiable, it follows that all points along the curve will be non differentiable. 
 
 We can see how the function starts out looking relatively smooth when $\lambda<1/2$, then as we further increase $\lambda$ we see the function becomes increasingly divergent.
 
