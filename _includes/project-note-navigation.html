@@ -1,15 +1,14 @@
 {%- comment -%}
-  Navigation bar for a note that belongs to a project (front matter `project_key`):
-  ← Back to project | Home
+  Navigation bar for every note: ← Back to project | Home
+  "Back to project" only appears when the note has a project_key
+  that matches a project page.
 {%- endcomment -%}
-{% include project-home.html %}
+{% if page.project_key %}{% include project-home.html %}{% else %}{% assign project_home = nil %}{% endif %}
 
-<nav class="site-nav project-section-site-nav" aria-label="Project note navigation">
+<nav class="site-nav project-section-site-nav" aria-label="Note navigation">
   <span class="project-section-nav-slot project-section-nav-previous">
     {% if project_home %}
       <a href="{{ project_home.url | relative_url }}">← Back to project</a>
-    {% else %}
-      <a href="{{ '/projects/' | relative_url }}">← Back to projects</a>
     {% endif %}
   </span>
 

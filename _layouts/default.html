@@ -32,7 +32,7 @@
   {% if page.blog_styles or page.layout == "post" %}
   <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
   {% endif %}
-  {% if page.collection == "notes" and page.project_key %}
+  {% if page.collection == "notes" %}
   <link rel="stylesheet" href="{{ '/assets/css/project.css' | relative_url }}">
   {% elsif page.project_styles or page.layout == "project" or page.layout == "research-project" or page.layout == "project-chapter" or page.layout == "project-section" %}
   <link rel="stylesheet" href="{{ '/assets/css/project.css' | relative_url }}">
@@ -68,7 +68,7 @@
         {% if page.collection == "posts" %}
           {% include post-navigation.html %}
         {% endif %}
-      {% elsif page.collection == "notes" and page.project_key %}
+      {% elsif page.collection == "notes" %}
         {% include project-note-navigation.html %}
       {% else %}
         {% include navigation.html %}
